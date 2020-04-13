@@ -1,0 +1,47 @@
+
+#button-container{
+    display:flex;
+    justify-content: space-between;
+
+    border-color: aqua;
+    border-style: dashed;
+  
+     
+     
+     
+   /* flex-direction:row;
+     justify-content: space-evenly;*/
+     
+     
+}
+
+button{
+    padding:0px;
+}  
+
+#show-answer-button{
+    align-self:center;
+}
+
+#edit-button{       
+     
+    align-self:flex-start;
+}
+
+#more-button{
+   
+    align-self:flex-end;
+}
+/*
+#edit-button{
+    align-self:flex-start;
+}
+
+#more-button{
+    align-self:flex-end;
+}
+
+#show-answer-button{
+    align-self:center;
+}
+*/
