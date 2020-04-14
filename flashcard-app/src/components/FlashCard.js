@@ -1,13 +1,14 @@
  
 import React from 'react';
-import flashCardData from './../flashCardData';
+import {flashCardData, NUMBER_OF_FLASHCARDS} from './../flashCardData';
 
+const getNextIndex = () => Math.floor(Math.random() * NUMBER_OF_FLASHCARDS);
 
 const FlashCard = function() {
  
         return(
             <div>
-                <p>{flashCardData[0].front}</p> 
+                <p>{flashCardData[getNextIndex()  ].front}</p> 
 
             </div>    
 
