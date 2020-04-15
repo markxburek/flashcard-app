@@ -1,11 +1,10 @@
-
+import {connect} from 'react-redux'
 import React from 'react';
+//import {getNextFlashCard} from '../actions'
 import './ButtonPanel.css';
 
  
-const onChange = () =>{
-
-}
+ 
 
 class ButtonPanel extends React.Component { 
     constructor(props){
@@ -31,7 +30,7 @@ class ButtonPanel extends React.Component {
 
 
         const EDIT_BUTTON =  <button id="edit-button">Edit </button>;
-        const SHOW_ANSWER_BUTTON =  <button id="show-answer-button" onClick={this.updateButtonPanel}>Show Answer </button>;
+        const SHOW_ANSWER_BUTTON =  <button id="show-answer-button" onClick={props.getNextFlashCard}>Show Answer </button>;
         const MORE_BUTTON = <button id="more-button">More</button>;
 
         //const MIDDLE_BUTTON = this.handleChange();
@@ -69,16 +68,23 @@ class ButtonPanel extends React.Component {
         
             </div>
             );
-
-        }
-    
-    
-  
-
+        }   
     }
 
- 
- 
 }
 
-export default ButtonPanel;
+
+
+const getNextFlashCard = () => {
+    return {
+        type: "GET_NEXT_FLASHCARD"
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return{
+        getNextFlashCard: () => dispatch(getNextFlashCard())
+    }
+}
+
+export default connect(null, mapDispatchToProps)(ButtonPanel);
