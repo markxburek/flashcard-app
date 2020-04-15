@@ -2,10 +2,7 @@
 #button-container{
     display:flex;
     justify-content: space-between;
-
-    border-color: aqua;
-    border-style: dashed;
-  
+ 
      
 }
 
