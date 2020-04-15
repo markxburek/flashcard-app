@@ -9,16 +9,13 @@ const FlashCard = function(props) {
         return(
             <div>
                 <p>{props.frontCard}</p> 
-
             </div>    
-
-        );
-    
+        );    
 }
 
 const mapStateToProps = state =>{
     return{
-        frontCard: flashCardData[getNextIndex()  ].front
+        frontCard: state.frontCard
     }
 }
 
