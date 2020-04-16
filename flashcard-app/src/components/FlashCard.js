@@ -8,14 +8,18 @@ const FlashCard = function(props) {
  
         return(
             <div>
-                <p>{props.frontCard}</p> 
+                <p>{props.viewing}</p> 
             </div>    
         );    
 }
 
 const mapStateToProps = state =>{
     return{
-        frontCard: state.flashCard.frontCard
+        frontCard: state.flashCard.frontCard,
+        viewing:  state.flashCard.viewing
+ 
+         
+        
     }
 }
 

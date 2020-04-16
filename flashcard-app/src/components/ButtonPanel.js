@@ -1,13 +1,14 @@
 import { connect } from 'react-redux'
 import React from 'react';
 import './ButtonPanel.css';
+import getNextFlashCardReducer from '../reducers/getNextFlashCardReducer';
 
 
 
 function ButtonPanel(props) {
 
     const EDIT_BUTTON = <button id="edit-button">Edit </button>;
-    const SHOW_ANSWER_BUTTON = <button id="show-answer-button" onClick={props.getNextFlashCard}>Show Answer </button>;
+    const SHOW_ANSWER_BUTTON = <button id="show-answer-button" onClick={props.getFlashCardAnswer}>Show Answer </button>;
     const MORE_BUTTON = <button id="more-button">More</button>;
     const QUESTION_BUTTON_PANEL =
         <div id="button-container"> {EDIT_BUTTON}{SHOW_ANSWER_BUTTON}{MORE_BUTTON}</div>
@@ -27,7 +28,7 @@ function ButtonPanel(props) {
         </div>
 
 
-    if (props.isAnswered !== true) {
+    if (props.isAnswered !== true) {     
 
         return (<div>
             <p>new blue learning red to review green</p>
@@ -36,7 +37,7 @@ function ButtonPanel(props) {
         );
 
     } else {
-
+    
         return (<div>
             <p>  new blue learning red to review green</p>
             {ANSWER_BUTTON_PANEL}
@@ -47,11 +48,25 @@ function ButtonPanel(props) {
 
 }
 
+const toggleButtonPanel =() =>{
+    return {
+        type: "TOGGLE_BUTTON_PANEL"
+    };
+};
+
 const getNextFlashCard = () => {
     return {
         type: "GET_NEXT_FLASHCARD"
     };
 };
+
+
+const getFlashCardAnswer = () => {
+    return {
+        type: "GET_FLASHCARD_ANSWER"
+         
+    }
+}
 
 const mapStateToProps = state => {
     return {
@@ -59,9 +74,18 @@ const mapStateToProps = state => {
     }
 }
 
+// const update = () {
+//     return dispatch => {
+//         dispatch(toggleButtonPanel());
+//         return dispatch(getFlashCardAnswer());
+//     };
+// } 
+
 const mapDispatchToProps = dispatch => {
     return {
-        getNextFlashCard: () => dispatch(getNextFlashCard())
+        getNextFlashCard: () => {dispatch(getNextFlashCard())},
+        getFlashCardAnswer: () => dispatch(getFlashCardAnswer()),
+        toggleButtonPanel: ()=> dispatch(toggleButtonPanel())
     }
 }
 

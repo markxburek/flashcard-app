@@ -3,7 +3,7 @@ const buttonState = {isAnswered: false}  ;
 
 const buttonStateReducer = (state =  buttonState, action) => {
     switch(action.type){
-        case "GET_NEXT_FLASHCARD":
+        case "TOGGLE_BUTTON_PANEL":
             return {isAnswered: !state.isAnswered};
         
         default: return buttonState;    
