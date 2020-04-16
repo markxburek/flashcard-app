@@ -15,7 +15,7 @@ const FlashCard = function(props) {
 
 const mapStateToProps = state =>{
     return{
-        frontCard: state.frontCard
+        frontCard: state.flashCard.frontCard
     }
 }
 

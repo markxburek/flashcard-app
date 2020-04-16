@@ -11,5 +11,7 @@ const buttonStateReducer = (state =  buttonState, action) => {
     }
 }
 
+export default buttonStateReducer;
+
 
  
