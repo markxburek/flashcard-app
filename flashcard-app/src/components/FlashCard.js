@@ -1,19 +1,22 @@
- 
 import React from 'react';
 import {flashCardData, NUMBER_OF_FLASHCARDS} from './../flashCardData';
+import { connect } from 'react-redux';
 
 const getNextIndex = () => Math.floor(Math.random() * NUMBER_OF_FLASHCARDS);
 
-const FlashCard = function() {
+const FlashCard = function(props) {
  
         return(
             <div>
-                <p>{flashCardData[getNextIndex()  ].front}</p> 
-
+                <p>{props.frontCard}</p> 
             </div>    
-
-        );
-    
+        );    
 }
 
-export default FlashCard;
+const mapStateToProps = state =>{
+    return{
+        frontCard: state.flashCard.frontCard
+    }
+}
+
+export default connect(mapStateToProps)(FlashCard);
