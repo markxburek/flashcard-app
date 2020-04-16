@@ -84,7 +84,12 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         getNextFlashCard: () => {dispatch(getNextFlashCard())},
-        getFlashCardAnswer: () => dispatch(getFlashCardAnswer()),
+        getFlashCardAnswer: () => {
+            dispatch(getFlashCardAnswer())
+            dispatch(toggleButtonPanel())
+             
+             
+        },
         toggleButtonPanel: ()=> dispatch(toggleButtonPanel())
     }
 }

@@ -30,7 +30,7 @@ const getNextFlashCardReducer = (state = initialState, action) => {
             return { viewing: state.backCard}    
              
         default:
-            return initialState;
+            return state;
 
     }
 }
