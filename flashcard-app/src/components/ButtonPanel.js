@@ -1,76 +1,50 @@
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import React from 'react';
 import './ButtonPanel.css';
 
-  
 
-function ButtonPanel(props) { 
-      
-    // updateButtonPanel(){
-    //     this.state.isAnswered === true
-    //     ? this.setState({isAnswered: false}) 
-    //     : this.setState({isAnswered: true})
 
-        
-    // }
+function ButtonPanel(props) {
 
-    
+    const EDIT_BUTTON = <button id="edit-button">Edit </button>;
+    const SHOW_ANSWER_BUTTON = <button id="show-answer-button" onClick={props.getNextFlashCard}>Show Answer </button>;
+    const MORE_BUTTON = <button id="more-button">More</button>;
+    const QUESTION_BUTTON_PANEL =
+        <div id="button-container"> {EDIT_BUTTON}{SHOW_ANSWER_BUTTON}{MORE_BUTTON}</div>
  
 
- 
+    const AGAIN_BUTTON = <button id="again-button" onClick={props.getNextFlashCard}>Again</button>;
+    const GOOD_BUTTON = <button id="good-button" onClick={props.getNextFlashCard}>Good</button>;
+    const EASY_BUTTON = <button id="easy-button" onClick={props.getNextFlashCard}>Easy</button>;
+
+    const ANSWER_BUTTON_PANEL =
+        <div id="button-container">
+            {EDIT_BUTTON}
+            {AGAIN_BUTTON}
+            {GOOD_BUTTON}
+            {EASY_BUTTON}
+            {MORE_BUTTON}
+        </div>
 
 
-        const EDIT_BUTTON =  <button id="edit-button">Edit </button>;
-        const SHOW_ANSWER_BUTTON =  <button id="show-answer-button" onClick={props.getNextFlashCard}>Show Answer </button>;
-        const MORE_BUTTON = <button id="more-button">More</button>;
+    if (props.isAnswered !== true) {
 
-        //const MIDDLE_BUTTON = this.handleChange();
-    
-        const AGAIN_BUTTON = <button id="again-button" onClick={props.getNextFlashCard}>Again</button>;
-        const GOOD_BUTTON = <button id="good-button" onClick={props.getNextFlashCard}>Good</button>;
-        const EASY_BUTTON = <button id="easy-button" onClick={props.getNextFlashCard}>Easy</button>;
+        return (<div>
+            <p>new blue learning red to review green</p>
+            {QUESTION_BUTTON_PANEL}
+        </div>
+        );
 
-        if(props.isAnswered !== true){
-             
-            return (<div>
-                <p>  new blue learning red to review green</p>
-                <div id="button-container">
-                    {EDIT_BUTTON} 
-                   {SHOW_ANSWER_BUTTON}
-                   {MORE_BUTTON}
-         
-                </div>
-        
-            </div>
-            );
+    } else {
 
-        }else{
-             
-            return (<div>
-                <p>  new blue learning red to review green</p>
-                <div id="button-container">
-                    {EDIT_BUTTON} 
-                   {AGAIN_BUTTON}
-                   {GOOD_BUTTON}
-                   {EASY_BUTTON}
-                   {MORE_BUTTON}
-         
-                </div>
-        
-            </div>
-            );
+        return (<div>
+            <p>  new blue learning red to review green</p>
+            {ANSWER_BUTTON_PANEL}
 
-        } 
+        </div>
+        );
+    }
 
-        // return(
-        //     <div>
-        //         <button onClick={props.getNextFlashCard}>Change Factoid {props.isAnswered.toString()}</button>
-        //     </div>
-
-        // );
-
- 
- 
 }
 
 const getNextFlashCard = () => {
@@ -85,11 +59,11 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = dispatch =>{
-    return{
+const mapDispatchToProps = dispatch => {
+    return {
         getNextFlashCard: () => dispatch(getNextFlashCard())
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(  ButtonPanel);
+export default connect(mapStateToProps, mapDispatchToProps)(ButtonPanel);
 
