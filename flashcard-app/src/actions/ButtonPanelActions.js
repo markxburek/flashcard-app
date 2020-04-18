@@ -1,5 +1,5 @@
-export const getAnswerButtons = () => {
-    return{
-        type: "GET_ANSWER_BUTTONS"
-    }
-}
+export const toggleButtonPanel =() =>{
+    return {
+        type: "TOGGLE_BUTTON_PANEL"
+    };
+};

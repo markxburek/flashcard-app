@@ -1,6 +1,8 @@
 import { connect } from 'react-redux'
 import React from 'react';
 import './ButtonPanel.css';
+import {getNextFlashCard, getFlashCardAnswer } from '../actions/FlashCardActions';
+import {toggleButtonPanel} from '../actions/ButtonPanelActions'
 import getNextFlashCardReducer from '../reducers/getNextFlashCardReducer';
 
 
@@ -48,25 +50,7 @@ function ButtonPanel(props) {
 
 }
 
-const toggleButtonPanel =() =>{
-    return {
-        type: "TOGGLE_BUTTON_PANEL"
-    };
-};
-
-const getNextFlashCard = () => {
-    return {
-        type: "GET_NEXT_FLASHCARD"
-    };
-};
-
-
-const getFlashCardAnswer = () => {
-    return {
-        type: "GET_FLASHCARD_ANSWER"
-         
-    }
-}
+ 
 
 const mapStateToProps = state => {
     return {
@@ -74,12 +58,7 @@ const mapStateToProps = state => {
     }
 }
 
-// const update = () {
-//     return dispatch => {
-//         dispatch(toggleButtonPanel());
-//         return dispatch(getFlashCardAnswer());
-//     };
-// } 
+ 
 
 const mapDispatchToProps = dispatch => {
     return {
