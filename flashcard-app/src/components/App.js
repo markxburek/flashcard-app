@@ -2,7 +2,7 @@ import React from 'react';
  
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import thunk from 'redux-thunk'
+// import thunk from 'redux-thunk'
 //import {getNextFlashCard} from './../actions'
 import getNextFlashCardReducer from './../reducers/getNextFlashCardReducer'
 import buttonStateReducer from './../reducers/buttonStateReducer'
@@ -14,7 +14,7 @@ const rootReducer = combineReducers({
   buttonPanel: buttonStateReducer,
   flashCard: getNextFlashCardReducer
 });
-export const store = createStore(rootReducer, applyMiddleware(thunk));
+export const store = createStore(rootReducer );
 //const store = createStore(getNextFlashCardReducer);
 //const Provider = ReactRedux.Provider;
 
