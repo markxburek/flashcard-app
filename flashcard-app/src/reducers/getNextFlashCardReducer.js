@@ -4,7 +4,7 @@ import { flashCardData, NUMBER_OF_FLASHCARDS } from '../flashCardData';
 
 
 
-const getNextIndex = () => Math.floor(Math.random() * NUMBER_OF_FLASHCARDS);
+//const getNextIndex = () => Math.floor(Math.random() * NUMBER_OF_FLASHCARDS);
 // const getNextIndex = () => {
 //     let index = Math.floor(Math.random() * NUMBER_OF_FLASHCARDS); 
 //     while( flashCardData[index ].timesShown !== 0){
@@ -27,11 +27,11 @@ let indexArray = [...Array(flashCardData.length).keys()]
 
 const getFrontOfFlashCard = (index) => flashCardData[index].front;
 const getBackOfFlashCard = (index) => flashCardData[index].back
-const initialIndex = getNextIndex();
+const initialIndex = getRandomIndex(flashCardData);
 
 
 const initialState = {
-    indexArray: indexArray,
+    indexArray: flashCardData,
     index: initialIndex,
     frontCard: getFrontOfFlashCard(initialIndex),
     backCard: getBackOfFlashCard(initialIndex),
@@ -44,24 +44,51 @@ const initialState = {
 const getNextFlashCardReducer = (state = initialState, action) => {
     switch (action.type) {
         case "GET_NEXT_FLASHCARD":
+            let indexArray = [...state.indexArray];
 
-            let index = getNextIndex();
+            let index = getRandomIndex(indexArray);
             let frontCard = getFrontOfFlashCard(index);
             let backCard = getBackOfFlashCard(index);
-            let indexArray = state.indexArray;
-            indexArray.pop();
+             
+            let viewing = frontCard;
+
+            if(indexArray.length !== 0){
+                indexArray = indexArray.filter(x => indexArray.indexOf(x) !== index);
+
+            }else {
+                viewing = "no more flash cards left"
+            }
+
+            console.log(`start: ${frontCard} selected`)
+
+            let frontCardValues = []
+
+            frontCardValues = indexArray.forEach(x => console.log(x.front)) 
+             
+
+ 
 
 
             return {
                 indexArray: indexArray ,
                 index: index,
-                frontCard: state.frontCard,
+                frontCard: frontCard,
                 backCard: backCard,
-                viewing: indexArray.toString()
-                //viewing: Object.keys(state)
+                viewing: viewing
+                //viewing: frontCard
+                //viewing:`length: ${indexArray.length}`
             };
 
         case "GET_FLASHCARD_ANSWER":
+    
+            console.log(`end: ${state.frontCard} selected`)
+
+            let indexArray_answer = [...state.indexArray]
+
+            let frontCardValues_answer = []
+
+            frontCardValues_answer = indexArray_answer.forEach(x => console.log(x.front)) 
+
             return Object.assign(
                 state,
                 {
