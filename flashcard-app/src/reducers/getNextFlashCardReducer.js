@@ -32,11 +32,16 @@ const getFrontOfFlashCard = (index, array) =>{
 };
 
 const getBackOfFlashCard = (index, array) => array[index].back
-const initialIndex = getRandomIndex(flashCardData);
 
+
+ 
+
+let initialArray = [...flashCardData];
+
+const initialIndex = getRandomIndex(initialArray);
 
 const initialState = {
-    indexArray: flashCardData,
+    indexArray: initialArray.filter(x => initialArray.indexOf(x) !== initialIndex),
     index: initialIndex,
     frontCard: getFrontOfFlashCard(initialIndex, flashCardData),
     backCard: getBackOfFlashCard(initialIndex, flashCardData),
