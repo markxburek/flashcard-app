@@ -9,6 +9,7 @@ import buttonStateReducer from './../reducers/buttonStateReducer'
 import FlashCard from './FlashCard';
 import ButtonPanel from './ButtonPanel.js';
 import './App.css';
+import DeckInfoScreen from './DeckInfoScreen';
 
 const rootReducer = combineReducers({
   buttonPanel: buttonStateReducer,
@@ -25,8 +26,9 @@ function App() {
   return (
     <div className="App">
       <Provider store={store}>
-        <FlashCard />
-        <ButtonPanel />
+        <DeckInfoScreen />
+        {/* <FlashCard />
+        <ButtonPanel /> */}
 
       </Provider>
 

@@ -1,0 +1,10 @@
+#deck-stats-container{
+    display: flex;
+    justify-content: center;
+}
+
+ #deck-stats-study-now-button{
+     align-self:  flex-end;
+     margin-left: 30px;
+     margin-bottom: 20px;
+ }
