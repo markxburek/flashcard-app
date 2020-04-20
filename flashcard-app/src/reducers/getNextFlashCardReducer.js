@@ -14,28 +14,33 @@ import { flashCardData, NUMBER_OF_FLASHCARDS } from '../flashCardData';
 
 // }
 
-let getRandomIndex = (indexArray) => {
-    return Math.floor(Math.random() * (indexArray.length))
+let getRandomIndex = (array) => {
+    return Math.floor(Math.random() * (array.length))
 }
 
-const removeElement = index => indexArray.filter(x => indexArray.indexOf(x) !== index)
+const removeElement = (index, array) => array.filter(x => array.indexOf(x) !== index)
 
 //initialize on startup 
 let indexArray = [...Array(flashCardData.length).keys()]
 
 
 
-const getFrontOfFlashCard = (index) => flashCardData[index].front;
-const getBackOfFlashCard = (index) => flashCardData[index].back
+const getFrontOfFlashCard = (index, array) =>{
+    return array[index].front;
+
+
+};
+
+const getBackOfFlashCard = (index, array) => array[index].back
 const initialIndex = getRandomIndex(flashCardData);
 
 
 const initialState = {
     indexArray: flashCardData,
     index: initialIndex,
-    frontCard: getFrontOfFlashCard(initialIndex),
-    backCard: getBackOfFlashCard(initialIndex),
-    viewing: getFrontOfFlashCard(initialIndex)
+    frontCard: getFrontOfFlashCard(initialIndex, flashCardData),
+    backCard: getBackOfFlashCard(initialIndex, flashCardData),
+    viewing: getFrontOfFlashCard(initialIndex, flashCardData)
 };
 
 
@@ -44,34 +49,42 @@ const initialState = {
 const getNextFlashCardReducer = (state = initialState, action) => {
     switch (action.type) {
         case "GET_NEXT_FLASHCARD":
-            let indexArray = [...state.indexArray];
+            let getNextFlashCardArray = [...state.indexArray];
 
-            let index = getRandomIndex(indexArray);
-            let frontCard = getFrontOfFlashCard(index);
-            let backCard = getBackOfFlashCard(index);
+            let getNextFlashCardIndex;  
+            let frontCard ;
+            let backCard ;
              
-            let viewing = frontCard;
+            let viewing ;
 
-            if(indexArray.length !== 0){
-                indexArray = indexArray.filter(x => indexArray.indexOf(x) !== index);
+            if(getNextFlashCardArray.length !== 0){
+
+                getNextFlashCardIndex = getRandomIndex(getNextFlashCardArray);
+                frontCard = getFrontOfFlashCard(getNextFlashCardIndex, getNextFlashCardArray);
+                backCard = getBackOfFlashCard(getNextFlashCardIndex, getNextFlashCardArray);
+                viewing = frontCard;
+
+
+                getNextFlashCardArray = getNextFlashCardArray.filter(x => getNextFlashCardArray.indexOf(x) !== getNextFlashCardIndex);
+
 
             }else {
                 viewing = "no more flash cards left"
             }
 
-            console.log(`start: ${frontCard} selected`)
+            console.log(`GET_NEXT_FLASHCARD: ${frontCard} selected`)
 
             let frontCardValues = []
 
-            frontCardValues = indexArray.forEach(x => console.log(x.front)) 
+            frontCardValues = getNextFlashCardArray.forEach(x => console.log(x.front)) 
              
 
  
 
 
             return {
-                indexArray: indexArray ,
-                index: index,
+                indexArray: getNextFlashCardArray ,
+                index: getNextFlashCardIndex,
                 frontCard: frontCard,
                 backCard: backCard,
                 viewing: viewing
@@ -81,23 +94,25 @@ const getNextFlashCardReducer = (state = initialState, action) => {
 
         case "GET_FLASHCARD_ANSWER":
     
-            console.log(`end: ${state.frontCard} selected`)
+            console.log(`GET_FLASHCARD_ANSWER: ${state.frontCard} selected`)
 
             let indexArray_answer = [...state.indexArray]
+            console.log('index array is ' + indexArray_answer)
+
 
             let frontCardValues_answer = []
 
             frontCardValues_answer = indexArray_answer.forEach(x => console.log(x.front)) 
 
-            return Object.assign(
-                state,
-                {
-                    
-                    viewing: state.backCard
-                    //viewing: Object.keys(state)
-                }
-
-            )
+            return {
+                indexArray: indexArray_answer ,
+                index: -1,
+                frontCard: state.frontCard,
+                backCard: state.backCard,
+                viewing: state.backCard
+                //viewing: frontCard
+                //viewing:`length: ${indexArray.length}`
+            };
 
         default:
             return state;
