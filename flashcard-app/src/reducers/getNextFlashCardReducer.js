@@ -23,9 +23,7 @@ const getBackOfFlashCard = (index, array) => array[index].back
  
 
 let initialArray = [...flashCardData];
-
-//const initialIndex = getRandomIndex(initialArray);
-
+ 
  
 const initializeFlashCardState = (initialFlashCardData) => {
     console.log("initializing flashcard data")
@@ -49,15 +47,16 @@ const initialState = initializeFlashCardState(flashCardData);
 
 const updateFlashCardState = (flashCardstate) => {
 
-    let currentFlashCardData = [...flashCardstate.indexArray]
-    let flashCardIndex = getRandomIndex(currentFlashCardData);
-    let frontCard = getFrontOfFlashCard(flashCardIndex, flashCardData);
+    let indexArray = [...flashCardstate.indexArray]
+    let flashCardIndex = getRandomIndex(indexArray);
+    let frontCard = getFrontOfFlashCard(flashCardIndex, indexArray);
+    let backCard = getBackOfFlashCard(flashCardIndex, indexArray);
 
     return {
-        indexArray: removeElement(flashCardIndex, initialArray) ,
+        indexArray: removeElement(flashCardIndex, indexArray) ,
         index: flashCardIndex,
         frontCard: frontCard,
-        backCard: getBackOfFlashCard(flashCardIndex, flashCardData),
+        backCard:  backCard,
         viewing: frontCard
     }
 
@@ -69,49 +68,28 @@ const updateFlashCardState = (flashCardstate) => {
 const getNextFlashCardReducer = (state = initialState, action) => {
     switch (action.type) {
         case "GET_NEXT_FLASHCARD":
-            let getNextFlashCardArray = [...state.indexArray];
 
-            let getNextFlashCardIndex;  
-            let frontCard ;
-            let backCard ;
-             
-            let viewing ;
+            let nextFlashCardState = {...state};
 
-            if(getNextFlashCardArray.length !== 0){
-                
-
-                getNextFlashCardIndex = getRandomIndex(getNextFlashCardArray);
-                frontCard = getFrontOfFlashCard(getNextFlashCardIndex, getNextFlashCardArray);
-                backCard = getBackOfFlashCard(getNextFlashCardIndex, getNextFlashCardArray);
-                viewing = frontCard;
+            let nextFlashCardArray = [...nextFlashCardState.indexArray];
 
 
-                getNextFlashCardArray = getNextFlashCardArray.filter(x => getNextFlashCardArray.indexOf(x) !== getNextFlashCardIndex);
-
+            if(nextFlashCardArray.length !== 0){
+                nextFlashCardState = updateFlashCardState(nextFlashCardState)
+ 
 
             }else {
-                viewing = "no more flash cards left"
+                nextFlashCardState.viewing = "no more flash cards left"
             }
 
-            console.log(`GET_NEXT_FLASHCARD: ${frontCard} selected`)
+            console.log(`GET_NEXT_FLASHCARD: ${nextFlashCardState.frontCard} selected`)
 
             let frontCardValues = []
 
-            frontCardValues = getNextFlashCardArray.forEach(x => console.log(x.front)) 
-             
+            frontCardValues = nextFlashCardArray.forEach(x => console.log(x.front)) 
 
+            return nextFlashCardState;
  
-
-
-            return {
-                indexArray: getNextFlashCardArray ,
-                index: getNextFlashCardIndex,
-                frontCard: frontCard,
-                backCard: backCard,
-                viewing: viewing
-                //viewing: frontCard
-                //viewing:`length: ${indexArray.length}`
-            };
 
         case "GET_FLASHCARD_ANSWER":
             let flashCardAnswerState = {...state};
