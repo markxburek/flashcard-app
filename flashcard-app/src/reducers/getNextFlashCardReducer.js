@@ -36,10 +36,7 @@ const initializeFlashCardState = (initialFlashCardData) => {
     }
 
 }
-
-const initialState = initializeFlashCardState(flashCardData);
  
-
 const updateFlashCardState = (flashCardstate) => {
 
     let currentFlashCardData = [...flashCardstate.currentFlashCardData]
@@ -60,7 +57,7 @@ const updateFlashCardState = (flashCardstate) => {
 
 //const removeElement = index => remainingIndexArray.filter(  element => element !== index); 
 
-const getNextFlashCardReducer = (state = initialState, action) => {
+const getNextFlashCardReducer = (state = initializeFlashCardState(flashCardData), action) => {
     switch (action.type) {
         case "GET_NEXT_FLASHCARD":
 
