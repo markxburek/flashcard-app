@@ -1,34 +1,108 @@
-import {flashCardData, NUMBER_OF_FLASHCARDS} from '../flashCardData';
+import { flashCardData } from '../flashCardData';
 
-const getNextIndex = () => Math.floor(Math.random() * NUMBER_OF_FLASHCARDS);
-const getNextCard = () => flashCardData[getNextIndex()  ].front;
+ 
 
-const getFrontOfFlashCard = (index) => flashCardData[index].front;
-const getBackOfFlashCard = (index) => flashCardData[index].back
-const initialIndex = getNextIndex();
+let getRandomIndex = (array) => {
+    return Math.floor(Math.random() * (array.length))
+}
+
+const removeElement = (index, array) => array.filter(x => array.indexOf(x) !== index)
 
 
-const initialState = {index: initialIndex,  
-                        frontCard: getFrontOfFlashCard(initialIndex), 
-                        backCard: getBackOfFlashCard(initialIndex),
-                        viewing: getFrontOfFlashCard(initialIndex)
+
+
+const getFrontOfFlashCard = (index, array) =>{
+    return array[index].front;
+
+
 };
 
-const getNextFlashCardReducer = (state = initialState, action) => {
-    switch(action.type){
-        case "GET_NEXT_FLASHCARD":
-            let index = getNextIndex();
-            let frontCard = getFrontOfFlashCard(index);
+const getBackOfFlashCard = (index, array) => array[index].back
+ 
 
-            return {index: index, 
-                frontCard: frontCard,
-                backCard: getBackOfFlashCard(index),
-                viewing: frontCard
-            };
-         
+const initializeFlashCardState = (initialFlashCardData) => {
+    console.log("initializing flashcard data")
+
+    let currentFlashCardData = [...initialFlashCardData]
+    let flashCardIndex = getRandomIndex(currentFlashCardData);
+    let frontCard = getFrontOfFlashCard(flashCardIndex, flashCardData);
+
+    return {
+        currentFlashCardData: removeElement(flashCardIndex, initialFlashCardData) ,
+        index: flashCardIndex,
+        frontCard: frontCard,
+        backCard: getBackOfFlashCard(flashCardIndex, initialFlashCardData),
+        viewing: frontCard
+    }
+
+}
+ 
+const updateFlashCardState = (flashCardstate) => {
+
+    let currentFlashCardData = [...flashCardstate.currentFlashCardData]
+    let flashCardIndex = getRandomIndex(currentFlashCardData);
+    let frontCard = getFrontOfFlashCard(flashCardIndex, currentFlashCardData);
+    let backCard = getBackOfFlashCard(flashCardIndex, currentFlashCardData);
+
+    return {
+        currentFlashCardData: removeElement(flashCardIndex, currentFlashCardData) ,
+        index: flashCardIndex,
+        frontCard: frontCard,
+        backCard:  backCard,
+        viewing: frontCard
+    }
+
+};
+
+
+//const removeElement = index => remainingIndexArray.filter(  element => element !== index); 
+
+const getNextFlashCardReducer = (state = initializeFlashCardState(flashCardData), action) => {
+    switch (action.type) {
+        case "GET_NEXT_FLASHCARD":
+
+            let nextFlashCardState = {...state};
+
+            let nextFlashCardArray = [...nextFlashCardState.currentFlashCardData];
+
+
+            if(nextFlashCardArray.length !== 0){
+                nextFlashCardState = updateFlashCardState(nextFlashCardState)
+ 
+
+            }else {
+                nextFlashCardState.viewing = "no more flash cards left"
+            }
+
+            console.log(`GET_NEXT_FLASHCARD: ${nextFlashCardState.frontCard} selected`)
+
+            let frontCardValues = []
+
+            frontCardValues = nextFlashCardArray.forEach(x => console.log(x.front)) 
+
+            return nextFlashCardState;
+ 
+
         case "GET_FLASHCARD_ANSWER":
-            return { viewing: state.backCard}    
-             
+            let flashCardAnswerState = {...state};
+
+
+    
+            console.log(`GET_FLASHCARD_ANSWER: ${flashCardAnswerState.frontCard} selected`)
+
+            let indexArray_answer = [...flashCardAnswerState.currentFlashCardData]
+            console.log('index array is ' + indexArray_answer)
+
+
+            let frontCardValues_answer = []
+
+            frontCardValues_answer = indexArray_answer.forEach(x => console.log(x.front)) 
+
+            flashCardAnswerState.viewing = flashCardAnswerState.backCard;
+
+            return flashCardAnswerState
+ 
+
         default:
             return state;
 
