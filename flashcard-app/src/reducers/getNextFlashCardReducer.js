@@ -114,10 +114,13 @@ const getNextFlashCardReducer = (state = initialState, action) => {
             };
 
         case "GET_FLASHCARD_ANSWER":
-    
-            console.log(`GET_FLASHCARD_ANSWER: ${state.frontCard} selected`)
+            let flashCardAnswerState = {...state};
 
-            let indexArray_answer = [...state.indexArray]
+
+    
+            console.log(`GET_FLASHCARD_ANSWER: ${flashCardAnswerState.frontCard} selected`)
+
+            let indexArray_answer = [...flashCardAnswerState.indexArray]
             console.log('index array is ' + indexArray_answer)
 
 
@@ -125,15 +128,10 @@ const getNextFlashCardReducer = (state = initialState, action) => {
 
             frontCardValues_answer = indexArray_answer.forEach(x => console.log(x.front)) 
 
-            return {
-                indexArray: indexArray_answer ,
-                index: -1,
-                frontCard: state.frontCard,
-                backCard: state.backCard,
-                viewing: state.backCard
-                //viewing: frontCard
-                //viewing:`length: ${indexArray.length}`
-            };
+            flashCardAnswerState.viewing = flashCardAnswerState.backCard;
+
+            return flashCardAnswerState
+ 
 
         default:
             return state;
