@@ -18,13 +18,8 @@ const getFrontOfFlashCard = (index, array) =>{
 };
 
 const getBackOfFlashCard = (index, array) => array[index].back
-
-
  
 
-let initialArray = [...flashCardData];
- 
- 
 const initializeFlashCardState = (initialFlashCardData) => {
     console.log("initializing flashcard data")
 
@@ -33,10 +28,10 @@ const initializeFlashCardState = (initialFlashCardData) => {
     let frontCard = getFrontOfFlashCard(flashCardIndex, flashCardData);
 
     return {
-        currentFlashCardData: removeElement(flashCardIndex, initialArray) ,
+        currentFlashCardData: removeElement(flashCardIndex, initialFlashCardData) ,
         index: flashCardIndex,
         frontCard: frontCard,
-        backCard: getBackOfFlashCard(flashCardIndex, flashCardData),
+        backCard: getBackOfFlashCard(flashCardIndex, initialFlashCardData),
         viewing: frontCard
     }
 
