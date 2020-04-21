@@ -33,7 +33,7 @@ const initializeFlashCardState = (initialFlashCardData) => {
     let frontCard = getFrontOfFlashCard(flashCardIndex, flashCardData);
 
     return {
-        indexArray: removeElement(flashCardIndex, initialArray) ,
+        currentFlashCardData: removeElement(flashCardIndex, initialArray) ,
         index: flashCardIndex,
         frontCard: frontCard,
         backCard: getBackOfFlashCard(flashCardIndex, flashCardData),
@@ -47,13 +47,13 @@ const initialState = initializeFlashCardState(flashCardData);
 
 const updateFlashCardState = (flashCardstate) => {
 
-    let indexArray = [...flashCardstate.indexArray]
-    let flashCardIndex = getRandomIndex(indexArray);
-    let frontCard = getFrontOfFlashCard(flashCardIndex, indexArray);
-    let backCard = getBackOfFlashCard(flashCardIndex, indexArray);
+    let currentFlashCardData = [...flashCardstate.currentFlashCardData]
+    let flashCardIndex = getRandomIndex(currentFlashCardData);
+    let frontCard = getFrontOfFlashCard(flashCardIndex, currentFlashCardData);
+    let backCard = getBackOfFlashCard(flashCardIndex, currentFlashCardData);
 
     return {
-        indexArray: removeElement(flashCardIndex, indexArray) ,
+        currentFlashCardData: removeElement(flashCardIndex, currentFlashCardData) ,
         index: flashCardIndex,
         frontCard: frontCard,
         backCard:  backCard,
@@ -71,7 +71,7 @@ const getNextFlashCardReducer = (state = initialState, action) => {
 
             let nextFlashCardState = {...state};
 
-            let nextFlashCardArray = [...nextFlashCardState.indexArray];
+            let nextFlashCardArray = [...nextFlashCardState.currentFlashCardData];
 
 
             if(nextFlashCardArray.length !== 0){
@@ -98,7 +98,7 @@ const getNextFlashCardReducer = (state = initialState, action) => {
     
             console.log(`GET_FLASHCARD_ANSWER: ${flashCardAnswerState.frontCard} selected`)
 
-            let indexArray_answer = [...flashCardAnswerState.indexArray]
+            let indexArray_answer = [...flashCardAnswerState.currentFlashCardData]
             console.log('index array is ' + indexArray_answer)
 
 
