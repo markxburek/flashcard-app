@@ -1,0 +1,13 @@
+#screen-navbar-container{
+    display: flex;
+    justify-content: space-evenly;
+    border-width: 1px;
+    border-color: gainsboro;
+    border-style: solid;
+    font-weight: bold;
+    background-color: #f3f5f6;
+
+}
+
+
+
