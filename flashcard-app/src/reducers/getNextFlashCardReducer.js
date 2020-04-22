@@ -1,23 +1,18 @@
 import { flashCardData } from '../flashCardData';
 
- 
+ const updateTimesShown = (index, array) => {
+     console.log(`Times ${array[index].front} Shown Before Update: ${array[index].timesShown}`)
+    array[index].timesShown++ 
+    console.log(`Times ${array[index].front} Shown After Update: ${array[index].timesShown}`)
+ } 
 
-let getRandomIndex = (array) => {
-    return Math.floor(Math.random() * (array.length))
-}
+let getRandomIndex = (array) =>  Math.floor(Math.random() * (array.length)); 
 
-const removeElement = (index, array) => array.filter(x => array.indexOf(x) !== index)
+const removeElement = (index, array) => array.filter(x => array.indexOf(x) !== index);
 
+const getFrontOfFlashCard = (index, array) => array[index].front;
 
-
-
-const getFrontOfFlashCard = (index, array) =>{
-    return array[index].front;
-
-
-};
-
-const getBackOfFlashCard = (index, array) => array[index].back
+const getBackOfFlashCard = (index, array) => array[index].back;
  
 
 const initializeFlashCardState = (initialFlashCardData) => {
@@ -25,7 +20,7 @@ const initializeFlashCardState = (initialFlashCardData) => {
 
     let currentFlashCardData = [...initialFlashCardData]
     let flashCardIndex = getRandomIndex(currentFlashCardData);
-    let frontCard = getFrontOfFlashCard(flashCardIndex, flashCardData);
+    let frontCard = getFrontOfFlashCard(flashCardIndex, flashCardData); 
 
     return {
         currentFlashCardData: removeElement(flashCardIndex, initialFlashCardData) ,
@@ -34,7 +29,6 @@ const initializeFlashCardState = (initialFlashCardData) => {
         backCard: getBackOfFlashCard(flashCardIndex, initialFlashCardData),
         viewing: frontCard
     }
-
 }
  
 const updateFlashCardState = (flashCardstate) => {
@@ -44,6 +38,8 @@ const updateFlashCardState = (flashCardstate) => {
     let frontCard = getFrontOfFlashCard(flashCardIndex, currentFlashCardData);
     let backCard = getBackOfFlashCard(flashCardIndex, currentFlashCardData);
 
+    
+
     return {
         currentFlashCardData: removeElement(flashCardIndex, currentFlashCardData) ,
         index: flashCardIndex,
@@ -51,11 +47,8 @@ const updateFlashCardState = (flashCardstate) => {
         backCard:  backCard,
         viewing: frontCard
     }
-
 };
-
-
-//const removeElement = index => remainingIndexArray.filter(  element => element !== index); 
+ 
 
 const getNextFlashCardReducer = (state = initializeFlashCardState(flashCardData), action) => {
     switch (action.type) {
@@ -65,10 +58,8 @@ const getNextFlashCardReducer = (state = initializeFlashCardState(flashCardData)
 
             let nextFlashCardArray = [...nextFlashCardState.currentFlashCardData];
 
-
             if(nextFlashCardArray.length !== 0){
-                nextFlashCardState = updateFlashCardState(nextFlashCardState)
- 
+                nextFlashCardState = updateFlashCardState(nextFlashCardState);
 
             }else {
                 nextFlashCardState.viewing = "no more flash cards left"
@@ -99,6 +90,8 @@ const getNextFlashCardReducer = (state = initializeFlashCardState(flashCardData)
             frontCardValues_answer = indexArray_answer.forEach(x => console.log(x.front)) 
 
             flashCardAnswerState.viewing = flashCardAnswerState.backCard;
+
+             
 
             return flashCardAnswerState
  
