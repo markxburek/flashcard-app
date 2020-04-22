@@ -20,6 +20,8 @@ function ButtonPanel(props) {
     const GOOD_BUTTON = <button id="good-button" onClick={props.getNextFlashCard}>Good</button>;
     const EASY_BUTTON = <button id="easy-button" onClick={props.getNextFlashCard}>Easy</button>;
 
+    const CARDS_LEFT = <p>new blue learning red to review green</p>  ;
+
     const ANSWER_BUTTON_PANEL =
         <div id="button-container">
             {EDIT_BUTTON}
@@ -33,7 +35,7 @@ function ButtonPanel(props) {
     if (props.isAnswered !== true) {     
 
         return (<div>
-            <p>new blue learning red to review green</p>
+             
             {QUESTION_BUTTON_PANEL}
         </div>
         );
@@ -65,9 +67,7 @@ const mapDispatchToProps = dispatch => {
         getNextFlashCard: () => {dispatch(getNextFlashCard())},
         getFlashCardAnswer: () => {
             dispatch(getFlashCardAnswer())
-            dispatch(toggleButtonPanel())
-             
-             
+            dispatch(toggleButtonPanel())                        
         },
         toggleButtonPanel: ()=> dispatch(toggleButtonPanel())
     }

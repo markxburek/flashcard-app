@@ -1,4 +1,5 @@
 import React from 'react';
+import './FlashCard.css';
 import { connect } from 'react-redux';
 
 
@@ -6,7 +7,7 @@ import { connect } from 'react-redux';
 const FlashCard = function (props) {
 
     return (
-        <div>
+        <div id="flashcard-container">
             <p>{props.viewing}</p>
         </div>
     );

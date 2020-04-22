@@ -1,6 +1,7 @@
 #button-container{
     display:flex;
     justify-content: space-between;
+    background-color: #f3f5f6;
  
      
 }
