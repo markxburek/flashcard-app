@@ -1,28 +1,23 @@
 import React from 'react'
+ 
 
 import {connect} from 'react-redux' 
 
-import FlashCard from './FlashCard';
-import ButtonPanel from './ButtonPanel.js';
+ 
 import ScreenNavbar from './ScreenNavbar';
 
-const STUDYING_DECK_SCREEN = <div><FlashCard /><ButtonPanel /></div>
-
-
-
-
-
+ 
 const getStudyingDeckScreen = () => {
     return {
         type: "GET_STUDYING_DECK_SCREEN"
     }
 }
 
-const SwitchScreen = () => {
+const SwitchScreen = (props) => {
     return (
         <div>
             <ScreenNavbar />
-            {STUDYING_DECK_SCREEN}
+            {props.currentScreen}
  
         </div>
     );
@@ -35,13 +30,13 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
+// const mapDispatchToProps = dispatch => {
+//     return {
 
-    }
-}
+//     }
+// }
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(SwitchScreen);
+export default connect(mapStateToProps)(SwitchScreen);
 
