@@ -1,7 +1,11 @@
 import React from 'react'
+
+import {connect} from 'react-redux'
+
+ 
 import './DeckInfoScreen.css'
 
-const DeckInfoScreen = () => {
+const DeckInfoScreen = (props) => {
 
     //placeholder variables for now
     let DECK_NAME = "deck name";
@@ -21,14 +25,27 @@ const DeckInfoScreen = () => {
                       To Review: {TO_REVIEW}
                 </div>
 
-                <button id="deck-stats-study-now-button">Study Now</button>
+                <button id="deck-stats-study-now-button" onClick={props.getStudyingDeckScreen} >Study Now</button>
 
             </div>
         </div>
     )
 }
 
-export default DeckInfoScreen;
+const getStudyingDeckScreen = () => {
+    return {
+        type: "GET_STUDYING_DECK_SCREEN"
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getStudyingDeckScreen: () => dispatch(getStudyingDeckScreen())
+
+    }
+}
+
+export default connect(null, mapDispatchToProps)( DeckInfoScreen);
 
 
 
