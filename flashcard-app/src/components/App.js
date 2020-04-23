@@ -1,9 +1,8 @@
 import React from 'react';
 
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
-// import thunk from 'redux-thunk'
-//import {getNextFlashCard} from './../actions'
+
 import getNextFlashCardReducer from './../reducers/getNextFlashCardReducer'
 import buttonStateReducer from './../reducers/buttonStateReducer'
 import FlashCard from './FlashCard';
