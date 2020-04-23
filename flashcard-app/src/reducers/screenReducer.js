@@ -6,6 +6,7 @@ import DeckInfoScreen from '../components/DeckInfoScreen';
 import AddCardScreen from '../components/AddCardScreen';
 import StatsScreen from '.././components/StatsScreen';
 import BrowseScreen from '.././components/BrowseScreen';
+import StudyingDeckScreen from '.././components/StudyingDeckScreen';
 
 const STUDYING_DECK_SCREEN = <div><FlashCard/><ButtonPanel/></div>
 const DECK_INFO_SCREEN = <div><DeckInfoScreen/></div>
@@ -13,9 +14,10 @@ const ADD_CARD_SCREEN = <div><AddCardScreen/></div>
 const STATS_SCREEN = <div><StatsScreen/></div>
 const BROWSE_SCREEN = <div><BrowseScreen/></div>
 
-const currentScreen = {currentScreen: STUDYING_DECK_SCREEN} ;
 
-const screenReducer = (state = currentScreen , action ) => {
+const currentScreen = {currentScreen: DECK_INFO_SCREEN} ;
+
+const screenReducer = (state = currentScreen, action ) => {
     switch(action.type){
         case "GET_STUDYING_DECK_SCREEN":
             return  {

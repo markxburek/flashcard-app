@@ -30,7 +30,12 @@ const mapStateToProps = state => {
     }
 }
 
+const mapDispatchToProps = dispatch => {
+    return {
+        getStudyingDeckScreen: () => dispatch(getStudyingDeckScreen())
+    }
+}
 
 
-export default connect(mapStateToProps)(SwitchScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(SwitchScreen);
 

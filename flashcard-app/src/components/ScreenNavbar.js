@@ -9,7 +9,7 @@ const ScreenNavbar = (props) => {
             <div id="decks"><button onClick={props.getDeckInfoScreen} >Decks</button> </div>
             <div id="add"> <button onClick={props.getAddCardScreen}> Add</button>  </div>
             <div id="browse"> <button onClick={props.getBrowseScreen}>Browse</button> </div>
-            <div id="stats"> <button onClick={props.getStatsScreen}> Stats </button> ></div>
+            <div id="stats"> <button onClick={props.getStatsScreen}> Stats </button> </div>
  
         </div>
     )
