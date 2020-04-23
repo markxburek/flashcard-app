@@ -10,7 +10,7 @@ import ScreenNavbar from './ScreenNavbar';
 const getStudyingDeckScreen = () => {
     return {
         type: "GET_STUDYING_DECK_SCREEN"
-    }
+    } 
 }
 
 const SwitchScreen = (props) => {
@@ -29,12 +29,6 @@ const mapStateToProps = state => {
 
     }
 }
-
-// const mapDispatchToProps = dispatch => {
-//     return {
-
-//     }
-// }
 
 
 
