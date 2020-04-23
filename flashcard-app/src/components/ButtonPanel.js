@@ -43,7 +43,7 @@ function ButtonPanel(props) {
     } else {
     
         return (<div>
-            <p>  new blue learning red to review green</p>
+             
             {ANSWER_BUTTON_PANEL}
 
         </div>
