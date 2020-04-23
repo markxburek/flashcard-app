@@ -1,7 +1,7 @@
 import React from 'react'
 import './DeckInfoScreen.css'
 
-const DeckInfoScreen = () => {
+const DeckInfoScreen = (props) => {
 
     //placeholder variables for now
     let DECK_NAME = "deck name";
