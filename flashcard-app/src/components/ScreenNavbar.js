@@ -8,8 +8,8 @@ const ScreenNavbar = (props) => {
         <div id="screen-navbar-container">
             <div id="decks"><button onClick={props.getDeckInfoScreen} >Decks</button> </div>
             <div id="add"> <button onClick={props.getAddCardScreen}> Add</button>  </div>
-            <div id="browse">Browse</div>
-            <div id="stats">Stats</div>
+            <div id="browse"> Browse </div>
+            <div id="stats"> <button onClick={props.getStatsScreen}> Stats </button> ></div>
  
         </div>
     )
@@ -28,13 +28,23 @@ const getAddCardScreen = () =>{
 
 }
 
-const mapPropsToDispatch = (dispatch) => {
+const getStatsScreen = () => {
+    return {
+        type: "GET_STATS_SCREEN"
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
     return {
         getDeckInfoScreen: () => dispatch(getDeckInfoScreen()),
-        getAddCardScreen: () => dispatch(getAddCardScreen())
+        getAddCardScreen: () => dispatch(getAddCardScreen()),
+        getStatsScreen: () => dispatch(getStatsScreen())
+
+
+    
 
 
     }
 }
 
-export default connect(null, mapPropsToDispatch)(ScreenNavbar);
+export default connect(null, mapDispatchToProps)(ScreenNavbar);
