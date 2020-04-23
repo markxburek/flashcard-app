@@ -5,11 +5,13 @@ import ButtonPanel from '.././components/ButtonPanel.js';
 import DeckInfoScreen from '../components/DeckInfoScreen';
 import AddCardScreen from '../components/AddCardScreen';
 import StatsScreen from '.././components/StatsScreen';
+import BrowseScreen from '.././components/BrowseScreen';
 
 const STUDYING_DECK_SCREEN = <div><FlashCard/><ButtonPanel/></div>
 const DECK_INFO_SCREEN = <div><DeckInfoScreen/></div>
 const ADD_CARD_SCREEN = <div><AddCardScreen/></div>
 const STATS_SCREEN = <div><StatsScreen/></div>
+const BROWSE_SCREEN = <div><BrowseScreen/></div>
 
 const currentScreen = {currentScreen: STUDYING_DECK_SCREEN} ;
 
@@ -33,6 +35,10 @@ const screenReducer = (state = currentScreen , action ) => {
         case "GET_STATS_SCREEN":
             return {
                 currentScreen: STATS_SCREEN
+            }    
+        case "GET_BROWSE_SCREEN":
+            return {
+                currentScreen: BROWSE_SCREEN
             }    
 
                             
