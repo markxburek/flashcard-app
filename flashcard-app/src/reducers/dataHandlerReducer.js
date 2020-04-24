@@ -1,16 +1,18 @@
 const data = [1,2,3];
+const iniitialState = {data: data};
 
-const dataHandlerReducer = (state = data, action) => {
+const dataHandlerReducer = (state = iniitialState, action) => {
    switch(action.type){
        case "GET_DATA":
-           let dataCopy = {...state}.data
+           console.log(state)
+           let dataCopy = {...state}
 
        
            console.log('got to GET_DATA');
            console.log(dataCopy)
            
-           return {data: data};
-       default: return data;
+           return {data: dataCopy.data};
+       default: return iniitialState;
    } 
 }
 

@@ -1,37 +1,42 @@
 import React from 'react'
 import DeckPreviewStats from './DeckPreviewStats'
- 
+
 import './DeckInfoScreen.css'
 import { connect } from 'react-redux'
 
-let deckPreviewStatsData = [ 
-    {DECK_NAME: "deck1", NEW: 10, LEARNING: 25, TO_REVIEW: 70},
-    {DECK_NAME: "deck2", NEW: 15, LEARNING: 13, TO_REVIEW: 42}
-];
- 
-
-
-
-let deckPreviewStats = deckPreviewStatsData.map(deck => 
-                                <DeckPreviewStats DECK_NAME={deck.DECK_NAME}
-                                                  NEW = {deck.NEW}
-                                                  LEARNING = {deck.LEARNING}
-                                                  TO_REVIEW = {deck.TO_REVIEW}
-                                                  />)
-
-
-                                                  
 const DeckInfoScreen = (props) => {
-      props.getData();
-      let test = {...props.data}
-      console.log(test[0])
+
+    let deckPreviewStatsData = [
+        { DECK_NAME: "deck1", NEW: 10, LEARNING: 25, TO_REVIEW: 70 },
+        { DECK_NAME: "deck2", NEW: 15, LEARNING: 13, TO_REVIEW: 42 }
+    ];
+
+
+
+
+    let deckPreviewStats = deckPreviewStatsData.map(deck =>
+        <DeckPreviewStats DECK_NAME={deck.DECK_NAME}
+            NEW={deck.NEW}
+            LEARNING={deck.LEARNING}
+            TO_REVIEW={deck.TO_REVIEW}
+        />)
+
+
+
+
+
+
+
+    props.getData();
+    let test = props.data
+    console.log(test[0])
 
 
 
     return (
-        <div>            
-            {deckPreviewStats}    
-            {props.data}         
+        <div>
+            {deckPreviewStats}
+            {props.data[0]}
         </div>
     )
 }
@@ -48,7 +53,7 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-const mapStateToProps = state=> {
+const mapStateToProps = state => {
     return {
         data: state.dataHandler.data
     }
