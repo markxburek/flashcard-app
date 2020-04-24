@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 
  
 import ScreenNavbar from './ScreenNavbar';
-import {DataHandler} from '../DataHandler'
+ 
  
 const getStudyingDeckScreen = () => {
     return {
@@ -26,7 +26,7 @@ const SwitchScreen = (props) => {
 const mapStateToProps = state => {
     return {
         currentScreen: state.switchScreen.currentScreen,
-        dataHandler: new DataHandler()
+        //dataHandler: new DataHandler()
 
     }
 }

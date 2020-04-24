@@ -6,9 +6,10 @@ import { Provider } from 'react-redux';
 import getNextFlashCardReducer from './../reducers/getNextFlashCardReducer'
 import buttonStateReducer from './../reducers/buttonStateReducer'
 import screenReducer from './../reducers/screenReducer'
+import dataHandlerReducer from './../reducers/dataHandlerReducer'
  
 import './App.css';
-import DeckInfoScreen from './DeckInfoScreen';
+ 
 import SwitchScreen from './SwitchScreen.js'
  
 
@@ -16,15 +17,13 @@ import SwitchScreen from './SwitchScreen.js'
 const rootReducer = combineReducers({
   buttonPanel: buttonStateReducer,
   flashCard: getNextFlashCardReducer,
-  switchScreen: screenReducer
+  switchScreen: screenReducer,
+  dataHandler: dataHandlerReducer
 });
 
 
 export const store = createStore(rootReducer);
-
-
-//const store = createStore(getNextFlashCardReducer);
-//const Provider = ReactRedux.Provider;
+ 
 
 
 function App() {
