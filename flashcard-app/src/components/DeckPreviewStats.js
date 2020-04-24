@@ -18,8 +18,8 @@ const DeckPreviewStats = (props) => {
                 <div id="deck-stats">
                     {/* put this in a table  */}
                   New: {props.NEW}  <br />
-                  Learning: {LEARNING} <br />
-                  To Review: {TO_REVIEW}
+                  Learning: {props.LEARNING} <br />
+                  To Review: {props.TO_REVIEW}
                 </div>
 
                 <button id="deck-stats-study-now-button" onClick={props.getStudyingDeckScreen} >Study Now</button>
