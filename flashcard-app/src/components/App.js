@@ -10,7 +10,7 @@ import screenReducer from './../reducers/screenReducer'
 import './App.css';
 import DeckInfoScreen from './DeckInfoScreen';
 import SwitchScreen from './SwitchScreen.js'
-
+ 
 
 
 const rootReducer = combineReducers({
@@ -39,3 +39,5 @@ function App() {
 }
 
 export default App;
+
+ 

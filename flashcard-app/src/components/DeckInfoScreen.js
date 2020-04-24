@@ -8,6 +8,8 @@ let deckPreviewStatsData = [
     {DECK_NAME: "deck2", NEW: 15, LEARNING: 13, TO_REVIEW: 42}
 ]
 
+
+
 let deckPreviewStats = deckPreviewStatsData.map(deck => 
                                 <DeckPreviewStats DECK_NAME={deck.DECK_NAME}
                                                   NEW = {deck.NEW}
