@@ -7,6 +7,7 @@ import AddCardScreen from '../components/AddCardScreen';
 import StatsScreen from '.././components/StatsScreen';
 import BrowseScreen from '.././components/BrowseScreen';
 import StudyingDeckScreen from '.././components/StudyingDeckScreen';
+ 
 
 const STUDYING_DECK_SCREEN = <div><FlashCard/><ButtonPanel/></div>
 const DECK_INFO_SCREEN = <div><DeckInfoScreen/></div>
