@@ -1,27 +1,23 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-let DECK_NAME = "deck name";
-let NEW = "Poo";
+//let DECK_NAME = "deck name";
+// let NEW = "Poo";
 let LEARNING = 25;
 let TO_REVIEW = 70;
 
-let deckPreviewStatsData = [ 
-    {DECK_NAME: "deck1", NEW: 10, LEARNING: 25, TO_REVIEW: 70},
-    {DECK_NAME: "deck2", NEW: 15, LEARNING: 13, TO_REVIEW: 42}
-]
-
+ 
 
 const DeckPreviewStats = (props) => {
     return (
         <div>
 
-            <h3>{DECK_NAME}</h3>
+            <h3>{props.DECK_NAME}</h3>
 
             <div id="deck-stats-container">
                 <div id="deck-stats">
                     {/* put this in a table  */}
-                  New: {NEW}  <br />
+                  New: {props.NEW}  <br />
                   Learning: {LEARNING} <br />
                   To Review: {TO_REVIEW}
                 </div>
