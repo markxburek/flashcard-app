@@ -9,7 +9,8 @@ const FlashCard = function (props) {
     return (
         <div id="flashcard-container">
             <p>{props.viewing}</p>
-    <p>{props.data[0].LEARNING}</p>
+
+            <p>{props.data[0].LEARNING}</p>
         </div>
     );
 }

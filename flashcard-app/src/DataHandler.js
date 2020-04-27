@@ -18,8 +18,8 @@ export class DataHandler {
         this.data.push(newData);
     }
 
-    readData(index){
-        return this.data[index];
+    readData(index, key){
+        return this.data[index][key];
     }
 
     updateData(index, key, newData){
