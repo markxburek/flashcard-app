@@ -9,6 +9,7 @@ const FlashCard = function (props) {
     return (
         <div id="flashcard-container">
             <p>{props.viewing}</p>
+    <p>{props.data[0].LEARNING}</p>
         </div>
     );
 }
@@ -16,7 +17,8 @@ const FlashCard = function (props) {
 const mapStateToProps = state => {
     return {
         frontCard: state.flashCard.frontCard,
-        viewing: state.flashCard.viewing
+        viewing: state.flashCard.viewing,
+        data: state.dataHandler.data
 
     }
 }

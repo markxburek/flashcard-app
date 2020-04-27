@@ -22,10 +22,10 @@ export class DataHandler {
         return this.data[index];
     }
 
-    updateData(index, newData){
+    updateData(index, key, newData){
         if(index > this.data.length) return undefined;
 
-        this.data[index] = newData;
+        this.data[index][key] = newData;
     }
 
     deleteData(index){

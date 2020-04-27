@@ -16,7 +16,7 @@ const dataHandlerReducer = (state = iniitialState, action) => {
 
        
            console.log('got to GET_DATA');
-           console.log('data is ' + dataCopy[0].DECK_NAME )
+           console.log('deckName: ' + dataCopy[0].DECK_NAME + ' LEARNING: ' + dataCopy[0].NEW )
            
            return {data: dataCopy};
        default: return iniitialState;
