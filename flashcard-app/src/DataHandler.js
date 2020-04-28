@@ -1,14 +1,33 @@
 //Intermediary between components and data
 import {flashCardData} from './flashCardData'
 
+const DECKDATA = "deckData"
+const SELECTED_DECK_INDEX = 0;
+
 export class DataHandler {
     constructor(){
         this.data = [ 
             {DECK_NAME: "initialDeck",deckData: flashCardData , NEW: 5, LEARNING: 5, TO_REVIEW: 5, CORRECT: 0, INCORRECT: 0, TIMES_SHOWN: 0},
             {DECK_NAME: "deck2", NEW: 15, LEARNING: 13, TO_REVIEW: 42, CORRECT: 0, INCORRECT: 0, TIMES_SHOWN: 0},
             {DECK_NAME: "deck3", NEW: 3, LEARNING: 53, TO_REVIEW: 100, CORRECT: 0, INCORRECT: 0, TIMES_SHOWN: 0 }
-        ]; 
+        ];
+        this.selectedDeckData = this.getDeckData(SELECTED_DECK_INDEX); 
+
+        this.getSelectedDeckData = this.getSelectedDeckData.bind(this);
     }
+ 
+
+    getDeckData(index){
+        console.log( 'getDeckData returned' +this.data[index][DECKDATA])
+        return this.data[index][DECKDATA];
+
+    }
+
+    getSelectedDeckData(){
+        return this.selectedDeckData;
+    }
+
+
 
     getData() {
         return this.data;
