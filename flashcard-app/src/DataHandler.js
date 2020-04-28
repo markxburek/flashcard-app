@@ -4,7 +4,7 @@ import {flashCardData} from './flashCardData'
 export class DataHandler {
     constructor(){
         this.data = [ 
-            {DECK_NAME: "deck1", NEW: 10, LEARNING: 25, TO_REVIEW: 70, CORRECT: 0, INCORRECT: 0, TIMES_SHOWN: 0},
+            {DECK_NAME: "initialDeck",deckData: flashCardData , NEW: 5, LEARNING: 5, TO_REVIEW: 5, CORRECT: 0, INCORRECT: 0, TIMES_SHOWN: 0},
             {DECK_NAME: "deck2", NEW: 15, LEARNING: 13, TO_REVIEW: 42, CORRECT: 0, INCORRECT: 0, TIMES_SHOWN: 0},
             {DECK_NAME: "deck3", NEW: 3, LEARNING: 53, TO_REVIEW: 100, CORRECT: 0, INCORRECT: 0, TIMES_SHOWN: 0 }
         ]; 
