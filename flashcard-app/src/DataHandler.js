@@ -27,11 +27,18 @@ export class DataHandler {
 
         this.data[index][key] = newData;
     }
+    incrementData(index, key){
+        if(index > this.data.length) return undefined;
+
+        this.data[index][key]++;
+
+    }
+
 
     deleteData(index){
         this.data.splice(index, 1);
     }
-
+ 
 
 
 }

@@ -11,6 +11,7 @@ const DeckInfoScreen = (props) => {
 
     //updateLearning
     props.updateData(0, "LEARNING", 625)
+    props.incrementData(0, "TIMES_SHOWN");
  
     let deckPreviewStatsPropsData = deckPreviewStatsData.map(deck =>
         <DeckPreviewStats
@@ -45,11 +46,19 @@ const updateData = (index, key, value) => {
     }
 }
 
+const incrementData = (index, key) => {
+    return {
+        type: "INCREMENT_DATA",
+        index,
+        key 
+    }
+}
 
 const mapDispatchToProps = dispatch => {
     return {
         getData: () => dispatch(getData()),
-        updateData: (index, key, value) => dispatch(updateData(index, key, value))
+        updateData: (index, key, value) => dispatch(updateData(index, key, value)),
+        incrementData: (index, key) => dispatch(incrementData(index, key))
     }
 }
 

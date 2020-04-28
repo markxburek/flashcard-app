@@ -23,7 +23,17 @@ const dataHandlerReducer = (state = iniitialState, action) => {
             //console.log("LEARNING is " +dataHandler.readData(0, "LEARNING") )
             dataHandler.updateData(action.index, action.key, action.value);
             //console.log("LEARNING is now " +dataHandler.readData(0, "LEARNING") )
-            return {data:  dataHandler.getData()};            
+            return {data:  dataHandler.getData()};     
+            
+         case "INCREMENT_DATA":
+            
+            console.log('got to INCREMENT_DATA');
+
+            console.log(action.key + ' is' + dataHandler.readData(action.index, action.key))
+            dataHandler.incrementData(action.index, action.key)
+            console.log('now ' + action.key + ' is' + dataHandler.readData(action.index, action.key))
+
+            return {data:  dataHandler.getData()}; 
            
        default: return iniitialState;
    } 
