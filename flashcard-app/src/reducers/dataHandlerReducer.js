@@ -13,9 +13,10 @@ const dataHandlerReducer = (state = iniitialState, action) => {
        case "GET_DATA":
         
            console.log('got to GET_DATA');
+           console.log(dataHandler.getDeckByName("vocabulary"))
 
            return {data: dataHandler.getData()};
-
+            
         case "UPDATE_DATA":
           
             console.log('got to UPDATE_DATA');

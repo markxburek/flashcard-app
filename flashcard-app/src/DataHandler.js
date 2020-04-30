@@ -18,7 +18,9 @@ export class DataHandler {
     }
 
     getDeckByName(deckName){
+        console.log('got to getDeckByName')
         let index =  this.data.findIndex( deck => deck.DECK_NAME === deckName);
+        console.log('index is ' +index)
         return this.data[index];
     }
  
