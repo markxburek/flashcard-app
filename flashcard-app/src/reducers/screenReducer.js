@@ -22,7 +22,8 @@ const screenReducer = (state = currentScreen, action ) => {
     switch(action.type){
         case "GET_STUDYING_DECK_SCREEN":
             return  {
-                currentScreen: STUDYING_DECK_SCREEN
+                currentScreen: STUDYING_DECK_SCREEN,
+                deckName: action.deckName
             }
 
         case "GET_DECK_INFO_SCREEN":

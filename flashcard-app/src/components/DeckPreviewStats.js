@@ -35,17 +35,17 @@ const DeckPreviewStats = (props) => {
 }
 
 
-const getStudyingDeckScreen = (index) => {
-    console.log(index)
+const getStudyingDeckScreen = (deckName) => {
+    console.log(deckName)
     return {
         type: "GET_STUDYING_DECK_SCREEN",
-        index
+        deckName
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getStudyingDeckScreen: (index) => dispatch(getStudyingDeckScreen(index))
+        getStudyingDeckScreen: (deckName) => dispatch(getStudyingDeckScreen(deckName))
 
     }
 }
