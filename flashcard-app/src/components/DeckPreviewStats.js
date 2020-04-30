@@ -9,6 +9,10 @@ let TO_REVIEW = 70;
  
 
 const DeckPreviewStats = (props) => {
+
+    let temp = props.getStudyingDeckScreen
+
+
     return (
         <div>
 
@@ -22,7 +26,7 @@ const DeckPreviewStats = (props) => {
                   To Review: {props.TO_REVIEW}
                 </div>
 
-                <button id="deck-stats-study-now-button" onClick={props.getStudyingDeckScreen} >Study Now</button>
+                <button id="deck-stats-study-now-button" onClick={ ()=> props.getStudyingDeckScreen("test")} >Study Now</button>
 
             </div>
         </div>
@@ -39,7 +43,7 @@ const getStudyingDeckScreen = () => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getStudyingDeckScreen: () => dispatch(getStudyingDeckScreen())
+        getStudyingDeckScreen: (index) => dispatch(getStudyingDeckScreen())
 
     }
 }
