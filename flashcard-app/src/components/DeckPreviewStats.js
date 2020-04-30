@@ -26,7 +26,7 @@ const DeckPreviewStats = (props) => {
                   To Review: {props.TO_REVIEW}
                 </div>
 
-                <button id="deck-stats-study-now-button" onClick={ ()=> props.getStudyingDeckScreen("test")} >Study Now</button>
+                <button id="deck-stats-study-now-button" onClick={ ()=> props.getStudyingDeckScreen(props.DECK_NAME)} >Study Now</button>
 
             </div>
         </div>
@@ -35,15 +35,17 @@ const DeckPreviewStats = (props) => {
 }
 
 
-const getStudyingDeckScreen = () => {
+const getStudyingDeckScreen = (index) => {
+    console.log(index)
     return {
-        type: "GET_STUDYING_DECK_SCREEN"
+        type: "GET_STUDYING_DECK_SCREEN",
+        index
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getStudyingDeckScreen: (index) => dispatch(getStudyingDeckScreen())
+        getStudyingDeckScreen: (index) => dispatch(getStudyingDeckScreen(index))
 
     }
 }
