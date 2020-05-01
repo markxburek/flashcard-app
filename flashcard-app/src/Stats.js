@@ -19,6 +19,18 @@ class Stats {
 
     }
 
+    mean = (data) => {
+
+        const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+        let numberOfEntries = data.length;
+        let sumOfEntries = data.reduce(reducer)
+
+        let mean = sumOfEntries / numberOfEntries
+     
+        return mean;
+    }
+
 
 }
 
