@@ -25,6 +25,7 @@ const DeckPreviewStats = (props) => {
                   Learning: {props.LEARNING} <br />
                   To Review: {props.TO_REVIEW}
                 </div>
+                <p>{props.data[0].deckData[0].front}</p>
 
                 <button id="deck-stats-study-now-button" onClick={ 
                     ()=> props.getStudyingDeckScreen(props.DECK_NAME)} >Study Now</button>
@@ -44,6 +45,12 @@ const getStudyingDeckScreen = (deckName) => {
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        data: state.dataHandler.data
+    }
+}
+
 const mapDispatchToProps = (dispatch) => {
     return {
         getStudyingDeckScreen: (deckName) => dispatch(getStudyingDeckScreen(deckName))
@@ -51,5 +58,5 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(DeckPreviewStats);
+export default connect(mapStateToProps, mapDispatchToProps)(DeckPreviewStats);
 

@@ -10,7 +10,7 @@ const FlashCard = function (props) {
         <div id="flashcard-container">
             <p>{props.viewing}</p>
 
-            <p>{props.data[0].LEARNING}</p>
+            <p>{props.data[0].deckData[0].front}</p>
         </div>
     );
 }
