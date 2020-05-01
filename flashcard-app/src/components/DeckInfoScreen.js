@@ -13,9 +13,10 @@ const DeckInfoScreen = (props) => {
     props.updateData(0, "LEARNING", 625)
     props.incrementData(0, "TIMES_SHOWN");
  
-    let deckPreviewStatsPropsData = deckPreviewStatsData.map(deck =>
+    let deckPreviewStatsPropsData = deckPreviewStatsData.map((deck, index)=>
         <DeckPreviewStats
-            key={deck.DECK_NAME}
+            key={index}
+            index={index} 
             DECK_NAME={deck.DECK_NAME}
             NEW={deck.NEW}
             LEARNING={deck.LEARNING}

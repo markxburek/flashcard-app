@@ -27,10 +27,11 @@ const DeckPreviewStats = (props) => {
                   Learning: {props.LEARNING} <br />
                   To Review: {props.TO_REVIEW}
                 </div>
-                <p>{props.data[0].deckData[0].front}</p>
+                {/* <p>{props.data[props.index].deckData[0].front}</p> */}
+    
 
                 <button id="deck-stats-study-now-button" onClick={ 
-                    ()=> props.getStudyingDeckScreen(props.DECK_NAME, props.data[0].deckData[0].front)} >Study Now</button>
+                    ()=> props.getStudyingDeckScreen(props.DECK_NAME, props.data[props.index].deckData)} >Study Now</button>
 
             </div>
         </div>
@@ -65,8 +66,9 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch) => {
     return {
         getStudyingDeckScreen: (deckName, data) => {
-            dispatch(getStudyingDeckScreen(deckName));
             dispatch(setFlashCardData(data))
+            dispatch(getStudyingDeckScreen(deckName));
+             
 
 
         }  

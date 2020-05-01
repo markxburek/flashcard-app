@@ -52,6 +52,17 @@ const updateFlashCardState = (flashCardstate) => {
 
 const getNextFlashCardReducer = (state = initializeFlashCardState(flashCardData), action) => {
     switch (action.type) {
+
+        case "SET_FLASHCARD_DATA": 
+
+            let myData = initializeFlashCardState(action.data)
+            console.log('got to SET_FLASHCARD_DATA')
+            //console.log('uploaded data is ' + action.data[0].front)
+            console.log('here is mydata '  +Object.keys(  myData))
+
+
+            return myData;
+
         case "GET_NEXT_FLASHCARD":
 
             let nextFlashCardState = {...state};
