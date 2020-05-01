@@ -1,6 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
+import {getNextFlashCard, getFlashCardAnswer } from '../actions/FlashCardActions';
+
 //let DECK_NAME = "deck name";
 // let NEW = "Poo";
 let LEARNING = 25;
@@ -28,12 +30,21 @@ const DeckPreviewStats = (props) => {
                 <p>{props.data[0].deckData[0].front}</p>
 
                 <button id="deck-stats-study-now-button" onClick={ 
-                    ()=> props.getStudyingDeckScreen(props.DECK_NAME)} >Study Now</button>
+                    ()=> props.getStudyingDeckScreen(props.DECK_NAME, props.data[0].deckData[0].front)} >Study Now</button>
 
             </div>
         </div>
 
     )
+}
+
+const setFlashCardData = (data) => {
+    console.log("called setFlashCardData");
+    return {
+        type: "SET_FLASHCARD_DATA",
+        data
+
+    }
 }
 
 
@@ -53,7 +64,12 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getStudyingDeckScreen: (deckName) => dispatch(getStudyingDeckScreen(deckName))
+        getStudyingDeckScreen: (deckName, data) => {
+            dispatch(getStudyingDeckScreen(deckName));
+            dispatch(setFlashCardData(data))
+
+
+        }  
 
     }
 }
