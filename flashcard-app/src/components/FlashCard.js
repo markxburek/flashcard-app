@@ -8,6 +8,7 @@ const FlashCard = function (props) {
 
     return (
         <div id="flashcard-container">
+            <h3>{props.deckName}</h3>
             <p>{props.viewing}</p>
 
             <p>{props.data[0].deckData[0].front}</p>
