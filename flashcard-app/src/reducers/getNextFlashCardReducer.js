@@ -20,7 +20,7 @@ const initializeFlashCardState = (initialFlashCardData) => {
 
     let currentFlashCardData = [...initialFlashCardData]
     let flashCardIndex = getRandomIndex(currentFlashCardData);
-    let frontCard = getFrontOfFlashCard(flashCardIndex, flashCardData); 
+    let frontCard = getFrontOfFlashCard(flashCardIndex, initialFlashCardData); 
 
     return {
         currentFlashCardData: removeElement(flashCardIndex, initialFlashCardData) ,
