@@ -20,10 +20,9 @@ const dataHandlerReducer = (state = iniitialState, action) => {
         case "UPDATE_DATA":
           
             console.log('got to UPDATE_DATA');
-            // console.log('deckName: ' + updateLearningDataCopy[0].DECK_NAME + ' LEARNING: ' + updateLearningDataCopy[0].NEW )
-            //console.log("LEARNING is " +dataHandler.readData(0, "LEARNING") )
+    
             dataHandler.updateData(action.index, action.key, action.value);
-            //console.log("LEARNING is now " +dataHandler.readData(0, "LEARNING") )
+    
             return {data:  dataHandler.getData()};     
             
          case "INCREMENT_DATA":
@@ -35,6 +34,8 @@ const dataHandlerReducer = (state = iniitialState, action) => {
             console.log('now ' + action.key + ' is' + dataHandler.readData(action.index, action.key))
 
             return {data:  dataHandler.getData()}; 
+
+         
            
        default: return iniitialState;
    } 
