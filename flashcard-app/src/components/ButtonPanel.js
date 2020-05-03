@@ -10,7 +10,9 @@ import getNextFlashCardReducer from '../reducers/getNextFlashCardReducer';
 function ButtonPanel(props) {
 
     const EDIT_BUTTON = <button id="edit-button">Edit </button>;
-const SHOW_ANSWER_BUTTON = <button id="show-answer-button" onClick={props.getFlashCardAnswer}>Show Answer {props.index}</button>;
+const SHOW_ANSWER_BUTTON = <button id="show-answer-button" onClick={() =>{
+     
+    props.getFlashCardAnswer(props.index)}}>Show Answer {props.index}</button>;
     const MORE_BUTTON = <button id="more-button">More</button>;
     const QUESTION_BUTTON_PANEL =
         <div id="button-container"> {EDIT_BUTTON}{SHOW_ANSWER_BUTTON}{MORE_BUTTON}</div>
@@ -57,6 +59,7 @@ const incrementTimesShown = (index) => {
     return {
         type: "INCREMENT_TIMES_SHOWN",
         index
+        
     }
 }
 
@@ -72,9 +75,13 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         getNextFlashCard: () => {dispatch(getNextFlashCard())},
-        getFlashCardAnswer: () => {
+        
+        getFlashCardAnswer: (index) => {
+             
             dispatch(getFlashCardAnswer())
-            dispatch(toggleButtonPanel())                        
+            dispatch(incrementTimesShown(index))
+            dispatch(toggleButtonPanel())   
+            //dispatch(incrementTimesShown())                     
         },
         toggleButtonPanel: ()=> dispatch(toggleButtonPanel())
     }
