@@ -18,34 +18,51 @@ const getBackOfFlashCard = (index, array) => array[index].back;
 const initializeFlashCardState = (initialFlashCardData) => {
     console.log("initializing flashcard data")
 
+
     let currentFlashCardData = [...initialFlashCardData]
-    let flashCardIndex = getRandomIndex(currentFlashCardData);
+
+    let indexArray = [0,1,2,3,4];
+    let indexToDelete = getRandomIndex(indexArray);
+    let flashCardIndex = indexArray[indexToDelete] 
+
+
+
+    //let flashCardIndex = getRandomIndex(currentFlashCardData);
     let frontCard = getFrontOfFlashCard(flashCardIndex, initialFlashCardData); 
 
     return {
-        currentFlashCardData: removeElement(flashCardIndex, initialFlashCardData) ,
+        currentFlashCardData:  currentFlashCardData ,
         index: flashCardIndex,
         frontCard: frontCard,
         backCard: getBackOfFlashCard(flashCardIndex, initialFlashCardData),
-        viewing: frontCard
+        viewing: frontCard,
+        indexArray: removeElement(indexToDelete, indexArray)
     }
 }
  
 const updateFlashCardState = (flashCardstate) => {
 
     let currentFlashCardData = [...flashCardstate.currentFlashCardData]
-    let flashCardIndex = getRandomIndex(currentFlashCardData);
+
+
+    let indexArray = [...flashCardstate.indexArray];
+    let indexToDelete = getRandomIndex(indexArray);
+    let flashCardIndex = indexArray[indexToDelete] 
+
+
+     
     let frontCard = getFrontOfFlashCard(flashCardIndex, currentFlashCardData);
     let backCard = getBackOfFlashCard(flashCardIndex, currentFlashCardData);
 
     
 
     return {
-        currentFlashCardData: removeElement(flashCardIndex, currentFlashCardData) ,
+        currentFlashCardData:  currentFlashCardData ,
         index: flashCardIndex,
         frontCard: frontCard,
         backCard:  backCard,
-        viewing: frontCard
+        viewing: frontCard,
+        indexArray: removeElement(indexToDelete, indexArray)
     }
 };
  
@@ -67,9 +84,9 @@ const getNextFlashCardReducer = (state = initializeFlashCardState(flashCardData)
 
             let nextFlashCardState = {...state};
 
-            let nextFlashCardArray = [...nextFlashCardState.currentFlashCardData];
+            let nextFlashCardIndexArray = [...nextFlashCardState.indexArray];
 
-            if(nextFlashCardArray.length !== 0){
+            if(nextFlashCardIndexArray.length !== 0){
                 nextFlashCardState = updateFlashCardState(nextFlashCardState);
 
             }else {
@@ -78,9 +95,9 @@ const getNextFlashCardReducer = (state = initializeFlashCardState(flashCardData)
 
             console.log(`GET_NEXT_FLASHCARD: ${nextFlashCardState.frontCard} selected`)
 
-            let frontCardValues = []
+            // let frontCardValues = []
 
-            frontCardValues = nextFlashCardArray.forEach(x => console.log(x.front)) 
+            // frontCardValues = nextFlashCardArray.forEach(x => console.log(x.front)) 
 
             return nextFlashCardState;
  
