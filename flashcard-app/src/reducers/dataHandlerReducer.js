@@ -35,6 +35,12 @@ const dataHandlerReducer = (state = iniitialState, action) => {
 
             return {data:  dataHandler.getData()}; 
 
+         case "INCREMENT_TIMES_SHOWN":
+            console.log('got to INCREMENT_TIMES_SHOWN');
+            return {data:  dataHandler.getData()}; 
+
+
+
          
            
        default: return iniitialState;
