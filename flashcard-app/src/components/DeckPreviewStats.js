@@ -57,6 +57,13 @@ const getStudyingDeckScreen = (deckName) => {
     }
 }
 
+const setDeckToStudy = (deckName) => {
+    return {
+        type: "SET_DECK_TO_STUDY",
+        deckName
+    }
+}
+
 const mapStateToProps = state => {
     return {
         data: state.dataHandler.data
@@ -66,6 +73,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch) => {
     return {
         getStudyingDeckScreen: (deckName, data) => {
+            dispatch(setDeckToStudy(deckName))
             dispatch(setFlashCardData(data))
             dispatch(getStudyingDeckScreen(deckName));
              

@@ -5,6 +5,11 @@ import {flashCardData, multCardData, vocabData} from './flashCardData'
 const DECKDATA = "deckData"
 const SELECTED_DECK_INDEX = 0;
 
+/*
+Deck means: a row in the this.data
+DeckData means: the rows of cards themselves
+*/
+
 export class DataHandler {
     constructor(){
         this.data = [ 
@@ -33,6 +38,10 @@ export class DataHandler {
 
     getSelectedDeckData(){
         return this.selectedDeckData;
+    }
+
+    setSelectedDeckData(deckName){
+        this.selectedDeckData = this.getDeckByName(deckName).deckData
     }
 
 

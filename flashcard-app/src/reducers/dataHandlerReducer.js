@@ -10,6 +10,15 @@ const iniitialState = {data: dataHandler.getData()};
 
 const dataHandlerReducer = (state = iniitialState, action) => {
    switch(action.type){
+
+
+       case "SET_DECK_TO_STUDY":
+          dataHandler.setSelectedDeckData(action.deckName)
+          console.log('SET DECK TO ' +dataHandler.getSelectedDeckData()[0].front)
+
+          return {data: dataHandler.getData()};
+
+
        case "GET_DATA":
         
            console.log('got to GET_DATA');
@@ -36,7 +45,7 @@ const dataHandlerReducer = (state = iniitialState, action) => {
             return {data:  dataHandler.getData()}; 
 
          case "INCREMENT_TIMES_SHOWN":
-            console.log('got to INCREMENT_TIMES_SHOWN');
+            console.log('got to INCREMENT_TIMES_SHOWN: index is  ' + action.index);
             return {data:  dataHandler.getData()}; 
 
 
