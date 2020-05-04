@@ -46,6 +46,7 @@ const dataHandlerReducer = (state = iniitialState, action) => {
 
          case "INCREMENT_TIMES_SHOWN":
             console.log('got to INCREMENT_TIMES_SHOWN: index is  ' + action.index);
+            dataHandler.incrementTimesShown(action.index)
             return {data:  dataHandler.getData()}; 
 
 

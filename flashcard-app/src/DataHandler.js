@@ -44,6 +44,14 @@ export class DataHandler {
         this.selectedDeckData = this.getDeckByName(deckName).deckData
     }
 
+    incrementTimesShown(index){
+        console.log(this.selectedDeckData[index].front + ' times shown: ' 
+        + this.selectedDeckData[index].timesShown)
+        this.selectedDeckData[index].timesShown++
+        console.log(this.selectedDeckData[index].front + ' times shown: ' 
+        + this.selectedDeckData[index].timesShown)
+    }
+
 
 
     getData() {
