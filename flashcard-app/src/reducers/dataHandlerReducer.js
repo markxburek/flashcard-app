@@ -49,6 +49,13 @@ const dataHandlerReducer = (state = iniitialState, action) => {
             dataHandler.incrementTimesShown(action.index)
             return {data:  dataHandler.getData()}; 
 
+         case "INCREMENT_CORRECTLY_ANSWERED":
+            dataHandler.incrementCorrectlyAnswered(action.index)
+            return {data:  dataHandler.getData()}; 
+
+
+
+
 
 
          

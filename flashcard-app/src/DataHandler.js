@@ -52,6 +52,14 @@ export class DataHandler {
         + this.selectedDeckData[index].timesShown)
     }
 
+    incrementCorrectlyAnswered(index){
+        console.log(this.selectedDeckData[index].front + ' correctly answered: ' 
+        + this.selectedDeckData[index].correctlyAnswered)
+        this.selectedDeckData[index].correctlyAnswered++
+        console.log(this.selectedDeckData[index].front + ' correctly answered: ' 
+        + this.selectedDeckData[index].correctlyAnswered)
+    }
+
 
 
     getData() {
