@@ -19,7 +19,7 @@ function ButtonPanel(props) {
         <div id="button-container"> {EDIT_BUTTON}{SHOW_ANSWER_BUTTON}{MORE_BUTTON}</div>
 
 
-    const AGAIN_BUTTON = <button id="again-button" onClick={props.getNextFlashCard}>Again</button>;
+    const AGAIN_BUTTON = <button id="again-button" onClick={() => props.incorrectlyAnswered()}>Again</button>;
     const GOOD_BUTTON = <button id="good-button" onClick={ () => props.correctlyAnswered(props.index)}>Good</button>;
     const EASY_BUTTON = <button id="easy-button" onClick={props.getNextFlashCard}>Easy</button>;
 
@@ -71,6 +71,12 @@ const incrementCorrectlyAnswered = (index) => {
     }
 }
 
+const incorrectlyAnswered = () => {
+    return {
+        type: "INCORRECTLY_ANSWERED"
+    }
+}
+
 
 const mapStateToProps = state => {
     return {
@@ -92,6 +98,16 @@ const mapDispatchToProps = dispatch => {
             dispatch(incrementCorrectlyAnswered(index))
 
         },
+        incorrectlyAnswered: ( ) => {
+
+             
+            dispatch(getNextFlashCard())             
+            dispatch(toggleButtonPanel())
+            dispatch(incorrectlyAnswered())
+           
+        },
+
+
         getNextFlashCard: () => { dispatch(getNextFlashCard()) },
 
         getFlashCardAnswer: (index) => {

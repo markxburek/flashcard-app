@@ -52,6 +52,9 @@ const dataHandlerReducer = (state = iniitialState, action) => {
          case "INCREMENT_CORRECTLY_ANSWERED":
             dataHandler.incrementCorrectlyAnswered(action.index)
             return {data:  dataHandler.getData()}; 
+         
+         case "INCORRECTLY_ANSWERED":
+            return  {data:  dataHandler.getData()};    
 
 
 
