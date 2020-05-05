@@ -13,6 +13,15 @@ const removeElement = (index, array) => array.filter(x => array.indexOf(x) !== i
 const getFrontOfFlashCard = (index, array) => array[index].front;
 
 const getBackOfFlashCard = (index, array) => array[index].back;
+
+const createIndexArray = (low, high) =>{
+    let indexArray = [];
+    for (let i = low; i <= high; i++) {
+        indexArray.push(i);
+    }
+    return indexArray;
+}
+
  
 
 const initializeFlashCardState = (initialFlashCardData) => {
@@ -21,11 +30,9 @@ const initializeFlashCardState = (initialFlashCardData) => {
 
     let currentFlashCardData = [...initialFlashCardData]
 
-    let indexArray = [0,1,2,3,4];
+    let indexArray = createIndexArray(0,4);
     let indexToDelete = getRandomIndex(indexArray);
     let flashCardIndex = indexArray[indexToDelete] 
-
-
 
     //let flashCardIndex = getRandomIndex(currentFlashCardData);
     let frontCard = getFrontOfFlashCard(flashCardIndex, initialFlashCardData); 
@@ -92,34 +99,28 @@ const getNextFlashCardReducer = (state = initializeFlashCardState(flashCardData)
             }else {
                 nextFlashCardState.viewing = "no more flash cards left"
             }
-
-            console.log(`GET_NEXT_FLASHCARD: ${nextFlashCardState.frontCard} selected`)
-
-            // let frontCardValues = []
-
-            // frontCardValues = nextFlashCardArray.forEach(x => console.log(x.front)) 
-
+ 
             return nextFlashCardState;
  
 
         case "GET_FLASHCARD_ANSWER":
             let flashCardAnswerState = {...state};
-
-
-    
-            console.log(`GET_FLASHCARD_ANSWER: ${flashCardAnswerState.frontCard} selected`)
-
+ 
             let indexArray_answer = [...flashCardAnswerState.currentFlashCardData]
-            console.log('index array is ' + indexArray_answer)
-
 
             let frontCardValues_answer = []
 
             frontCardValues_answer = indexArray_answer.forEach(x => console.log(x.front)) 
 
-            flashCardAnswerState.viewing = flashCardAnswerState.backCard;
+            console.log(flashCardAnswerState.indexArray.length)
 
-             
+            if(flashCardAnswerState.indexArray.length !== 0){
+                flashCardAnswerState.viewing = flashCardAnswerState.backCard;
+
+            }else{
+                flashCardAnswerState.viewing = "no more flash cards left"
+
+            }
 
             return flashCardAnswerState
  
