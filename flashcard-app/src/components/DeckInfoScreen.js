@@ -1,5 +1,6 @@
 import React from 'react'
 import DeckPreviewStats from './DeckPreviewStats'
+import {getData, updateData, incrementData } from '../actions/DataHandlerActions'
 
 import './DeckInfoScreen.css'
 import { connect } from 'react-redux'
@@ -32,28 +33,28 @@ const DeckInfoScreen = (props) => {
     )
 }
 
-const getData = () => {
-    return {
-        type: "GET_DATA"
-    }
-}
+// const getData = () => {
+//     return {
+//         type: "GET_DATA"
+//     }
+// }
 
-const updateData = (index, key, value) => {
-    return {
-        type: "UPDATE_DATA",
-        index,
-        key,
-        value
-    }
-}
+// const updateData = (index, key, value) => {
+//     return {
+//         type: "UPDATE_DATA",
+//         index,
+//         key,
+//         value
+//     }
+// }
 
-const incrementData = (index, key) => {
-    return {
-        type: "INCREMENT_DATA",
-        index,
-        key 
-    }
-}
+// const incrementData = (index, key) => {
+//     return {
+//         type: "INCREMENT_DATA",
+//         index,
+//         key 
+//     }
+// }
 
 const mapDispatchToProps = dispatch => {
     return {

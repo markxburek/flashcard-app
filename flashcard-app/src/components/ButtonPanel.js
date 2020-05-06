@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 import React from 'react';
 import './ButtonPanel.css';
 import { getNextFlashCard, getFlashCardAnswer } from '../actions/FlashCardActions';
+import {incrementTimesShown, incrementCorrectlyAnswered, incorrectlyAnswered} from '../actions/DataHandlerActions';
 import { toggleButtonPanel } from '../actions/ButtonPanelActions'
 import getNextFlashCardReducer from '../reducers/getNextFlashCardReducer';
 
@@ -56,26 +57,26 @@ function ButtonPanel(props) {
 }
 
 
-const incrementTimesShown = (index) => {
-    return {
-        type: "INCREMENT_TIMES_SHOWN",
-        index
+// const incrementTimesShown = (index) => {
+//     return {
+//         type: "INCREMENT_TIMES_SHOWN",
+//         index
 
-    }
-}
+//     }
+// }
 
-const incrementCorrectlyAnswered = (index) => {
-    return {
-        type: "INCREMENT_CORRECTLY_ANSWERED",
-        index
-    }
-}
+// const incrementCorrectlyAnswered = (index) => {
+//     return {
+//         type: "INCREMENT_CORRECTLY_ANSWERED",
+//         index
+//     }
+// }
 
-const incorrectlyAnswered = () => {
-    return {
-        type: "INCORRECTLY_ANSWERED"
-    }
-}
+// const incorrectlyAnswered = () => {
+//     return {
+//         type: "INCORRECTLY_ANSWERED"
+//     }
+// }
 
 
 const mapStateToProps = state => {
