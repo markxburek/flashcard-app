@@ -11,3 +11,12 @@ export const getFlashCardAnswer = () => {
          
     }
 }
+
+export const setFlashCardData = (data) => {
+    console.log("called setFlashCardData");
+    return {
+        type: "SET_FLASHCARD_DATA",
+        data
+
+    }
+}

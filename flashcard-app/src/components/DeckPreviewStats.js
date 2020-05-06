@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import {getNextFlashCard, getFlashCardAnswer } from '../actions/FlashCardActions';
+import {getNextFlashCard, getFlashCardAnswer, setFlashCardData } from '../actions/FlashCardActions';
 
 //let DECK_NAME = "deck name";
 // let NEW = "Poo";
@@ -39,14 +39,14 @@ const DeckPreviewStats = (props) => {
     )
 }
 
-const setFlashCardData = (data) => {
-    console.log("called setFlashCardData");
-    return {
-        type: "SET_FLASHCARD_DATA",
-        data
+// const setFlashCardData = (data) => {
+//     console.log("called setFlashCardData");
+//     return {
+//         type: "SET_FLASHCARD_DATA",
+//         data
 
-    }
-}
+//     }
+// }
 
 
 const getStudyingDeckScreen = (deckName) => {
