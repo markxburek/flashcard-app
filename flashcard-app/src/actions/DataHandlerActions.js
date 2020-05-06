@@ -41,3 +41,10 @@ export const incrementData = (index, key) => {
         key 
     }
 }
+
+export const setDeckToStudy = (deckName) => {
+    return {
+        type: "SET_DECK_TO_STUDY",
+        deckName
+    }
+}

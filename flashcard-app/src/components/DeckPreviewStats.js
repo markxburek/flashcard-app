@@ -1,6 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
+import {setDeckToStudy} from '../actions/DataHandlerActions'
+import {getStudyingDeckScreen} from '../actions/ScreenActions'
 import {getNextFlashCard, getFlashCardAnswer, setFlashCardData } from '../actions/FlashCardActions';
 
 //let DECK_NAME = "deck name";
@@ -49,20 +51,20 @@ const DeckPreviewStats = (props) => {
 // }
 
 
-const getStudyingDeckScreen = (deckName) => {
-    console.log(deckName)
-    return {
-        type: "GET_STUDYING_DECK_SCREEN",
-        deckName
-    }
-}
+// const getStudyingDeckScreen = (deckName) => {
+//     console.log(deckName)
+//     return {
+//         type: "GET_STUDYING_DECK_SCREEN",
+//         deckName
+//     }
+// }
 
-const setDeckToStudy = (deckName) => {
-    return {
-        type: "SET_DECK_TO_STUDY",
-        deckName
-    }
-}
+// const setDeckToStudy = (deckName) => {
+//     return {
+//         type: "SET_DECK_TO_STUDY",
+//         deckName
+//     }
+// }
 
 const mapStateToProps = state => {
     return {
