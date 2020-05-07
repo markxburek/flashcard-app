@@ -4,7 +4,7 @@ import './ButtonPanel.css';
 import { getNextFlashCard, getFlashCardAnswer } from '../actions/FlashCardActions';
 import {incrementTimesShown, incrementCorrectlyAnswered, incorrectlyAnswered} from '../actions/DataHandlerActions';
 import { toggleButtonPanel } from '../actions/ButtonPanelActions'
-import getNextFlashCardReducer from '../reducers/getNextFlashCardReducer';
+
 
 
 

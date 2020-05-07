@@ -3,19 +3,11 @@ import {connect} from 'react-redux'
 
 import {setDeckToStudy} from '../actions/DataHandlerActions'
 import {getStudyingDeckScreen} from '../actions/ScreenActions'
-import {getNextFlashCard, getFlashCardAnswer, setFlashCardData } from '../actions/FlashCardActions';
-
-//let DECK_NAME = "deck name";
-// let NEW = "Poo";
-let LEARNING = 25;
-let TO_REVIEW = 70;
+import {setFlashCardData } from '../actions/FlashCardActions';
 
  
 
 const DeckPreviewStats = (props) => {
-
-    let temp = props.getStudyingDeckScreen
-
 
     return (
         <div>
@@ -29,9 +21,7 @@ const DeckPreviewStats = (props) => {
                   Learning: {props.LEARNING} <br />
                   To Review: {props.TO_REVIEW}
                 </div>
-                {/* <p>{props.data[props.index].deckData[0].front}</p> */}
-    
-
+     
                 <button id="deck-stats-study-now-button" onClick={ 
                     ()=> props.getStudyingDeckScreen(props.DECK_NAME, props.data[props.index].deckData)} >Study Now</button>
 
