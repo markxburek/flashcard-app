@@ -14,7 +14,7 @@ function ButtonPanel(props) {
     const SHOW_ANSWER_BUTTON = <button id="show-answer-button" onClick={() => {
 
         props.getFlashCardAnswer(props.index)
-    }}>Show Answer {props.index}</button>;
+    }}>Show Answer  </button>;
     const MORE_BUTTON = <button id="more-button">More</button>;
     const QUESTION_BUTTON_PANEL =
         <div id="button-container"> {EDIT_BUTTON}{SHOW_ANSWER_BUTTON}{MORE_BUTTON}</div>

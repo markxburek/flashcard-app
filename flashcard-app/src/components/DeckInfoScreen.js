@@ -28,7 +28,7 @@ const DeckInfoScreen = (props) => {
     return (
         <div>
             {deckPreviewStatsPropsData}
-            {'deckname is ' + props.data[0].DECK_NAME}
+             
         </div>
     )
 }
