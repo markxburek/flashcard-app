@@ -6,10 +6,7 @@ import DeckInfoScreen from '../components/DeckInfoScreen';
 import AddCardScreen from '../components/AddCardScreen';
 import StatsScreen from '.././components/StatsScreen';
 import BrowseScreen from '.././components/BrowseScreen';
-import StudyingDeckScreen from '.././components/StudyingDeckScreen';
  
-
-const STUDYING_DECK_SCREEN = <div><FlashCard/><ButtonPanel/></div>
 const DECK_INFO_SCREEN = <div><DeckInfoScreen/></div>
 const ADD_CARD_SCREEN = <div><AddCardScreen/></div>
 const STATS_SCREEN = <div><StatsScreen/></div>
