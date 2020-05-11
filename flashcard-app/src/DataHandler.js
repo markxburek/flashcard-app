@@ -17,15 +17,24 @@ export class DataHandler {
             {DECK_NAME: "multiplication", deckData: multCardData, NEW: 15, LEARNING: 13, TO_REVIEW: 42, CORRECT: 0, INCORRECT: 0, TIMES_SHOWN: 0},
             {DECK_NAME: "vocabulary", deckData: vocabData, NEW: 3, LEARNING: 53, TO_REVIEW: 100, CORRECT: 0, INCORRECT: 0, TIMES_SHOWN: 0 }
         ];
+
+        this.deckToStudy = this.getDeckData(SELECTED_DECK_INDEX);
+        this.indexArray = null;
+        this.indexToDelete = null;
+        this.flashCardIndex = null
+
+
+
+
         this.selectedDeckData = this.getDeckData(SELECTED_DECK_INDEX); 
 
         this.getSelectedDeckData = this.getSelectedDeckData.bind(this);
     }
 
     getDeckByName(deckName){
-        console.log('got to getDeckByName')
+        
         let index =  this.data.findIndex( deck => deck.DECK_NAME === deckName);
-        console.log('index is ' +index)
+         
         return this.data[index];
     }
  
@@ -45,19 +54,15 @@ export class DataHandler {
     }
 
     incrementTimesShown(index){
-        console.log(this.selectedDeckData[index].front + ' times shown: ' 
-        + this.selectedDeckData[index].timesShown)
+        
         this.selectedDeckData[index].timesShown++
-        console.log(this.selectedDeckData[index].front + ' times shown: ' 
-        + this.selectedDeckData[index].timesShown)
+        
     }
 
     incrementCorrectlyAnswered(index){
-        console.log(this.selectedDeckData[index].front + ' correctly answered: ' 
-        + this.selectedDeckData[index].correctlyAnswered)
+         
         this.selectedDeckData[index].correctlyAnswered++
-        console.log(this.selectedDeckData[index].front + ' correctly answered: ' 
-        + this.selectedDeckData[index].correctlyAnswered)
+        
     }
 
 
