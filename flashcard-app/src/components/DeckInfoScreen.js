@@ -33,28 +33,7 @@ const DeckInfoScreen = (props) => {
     )
 }
 
-// const getData = () => {
-//     return {
-//         type: "GET_DATA"
-//     }
-// }
 
-// const updateData = (index, key, value) => {
-//     return {
-//         type: "UPDATE_DATA",
-//         index,
-//         key,
-//         value
-//     }
-// }
-
-// const incrementData = (index, key) => {
-//     return {
-//         type: "INCREMENT_DATA",
-//         index,
-//         key 
-//     }
-// }
 
 const mapDispatchToProps = dispatch => {
     return {
