@@ -1,10 +1,6 @@
 import { flashCardData } from '../flashCardData';
 
- const updateTimesShown = (index, array) => {
-     console.log(`Times ${array[index].front} Shown Before Update: ${array[index].timesShown}`)
-    array[index].timesShown++ 
-    console.log(`Times ${array[index].front} Shown After Update: ${array[index].timesShown}`)
- } 
+ 
 
 let getRandomIndex = (array) =>  Math.floor(Math.random() * (array.length)); 
 
