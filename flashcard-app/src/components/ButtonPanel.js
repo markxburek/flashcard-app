@@ -57,26 +57,7 @@ function ButtonPanel(props) {
 }
 
 
-// const incrementTimesShown = (index) => {
-//     return {
-//         type: "INCREMENT_TIMES_SHOWN",
-//         index
-
-//     }
-// }
-
-// const incrementCorrectlyAnswered = (index) => {
-//     return {
-//         type: "INCREMENT_CORRECTLY_ANSWERED",
-//         index
-//     }
-// }
-
-// const incorrectlyAnswered = () => {
-//     return {
-//         type: "INCORRECTLY_ANSWERED"
-//     }
-// }
+ 
 
 
 const mapStateToProps = state => {
