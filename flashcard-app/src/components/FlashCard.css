@@ -1,4 +1,11 @@
-#flashcard-container{
+#flashcard-container {
     background-color: #fffbf1;
     padding: 10px;
+}
+
+button {
+    border-radius: 12px;
+    background-color: blue;
+    color: white;
+
 }
