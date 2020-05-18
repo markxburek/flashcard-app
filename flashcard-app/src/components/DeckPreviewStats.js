@@ -31,31 +31,7 @@ const DeckPreviewStats = (props) => {
     )
 }
 
-// const setFlashCardData = (data) => {
-//     console.log("called setFlashCardData");
-//     return {
-//         type: "SET_FLASHCARD_DATA",
-//         data
-
-//     }
-// }
-
-
-// const getStudyingDeckScreen = (deckName) => {
-//     console.log(deckName)
-//     return {
-//         type: "GET_STUDYING_DECK_SCREEN",
-//         deckName
-//     }
-// }
-
-// const setDeckToStudy = (deckName) => {
-//     return {
-//         type: "SET_DECK_TO_STUDY",
-//         deckName
-//     }
-// }
-
+ 
 const mapStateToProps = state => {
     return {
         data: state.dataHandler.data
