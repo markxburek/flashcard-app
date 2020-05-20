@@ -17,30 +17,7 @@ const ScreenNavbar = (props) => {
     )
 }
 
-// const getBrowseScreen = () => {
-//     return {
-//         type: "GET_BROWSE_SCREEN"
-//     }
-// }
-
-// const getDeckInfoScreen = () => {
-//     return {
-//         type: "GET_DECK_INFO_SCREEN"
-//     }
-// }
-
-// const getAddCardScreen = () =>{
-//     return {
-//         type: "GET_ADD_CARD_SCREEN"
-//     }
-
-// }
-
-// const getStatsScreen = () => {
-//     return {
-//         type: "GET_STATS_SCREEN"
-//     }
-// }
+ 
 
 const mapDispatchToProps = (dispatch) => {
     return {
